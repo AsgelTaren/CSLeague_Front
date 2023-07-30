@@ -1,0 +1,1 @@
+export { default as campaign_test } from './campaign_test.png';

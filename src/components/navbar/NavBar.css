@@ -1,0 +1,66 @@
+.navbar {
+    width: 100%;
+    background: rgb(196, 196, 196);
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-logo p {
+    background: var(--main-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.navbar-right {
+    display: flex;
+    margin-right: 4rem;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.userpin {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgb(156, 156, 156);
+    padding: 0.8rem;
+    border-radius: 4rem;
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    color: white
+}
+
+.userpin img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2rem;
+}
+
+.user-login {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    padding:0.8rem;
+    color:var(--color-secondary);
+}
+
+.user-login:hover{
+    border-bottom: 4px solid var(--color-secondary);
+    margin-bottom:-4px;
+}

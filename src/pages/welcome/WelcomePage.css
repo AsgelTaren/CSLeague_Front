@@ -1,0 +1,23 @@
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.welcome-page-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.welcome-page-main-name>p {
+    white-space: nowrap;
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    background: var(--main-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
