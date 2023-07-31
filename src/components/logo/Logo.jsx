@@ -9,20 +9,20 @@ const Logo = ({ size = 200 }) => {
         <path d="M89.4204 23.2554C193.421 91.7554 82.9206 117.255 101.42 176.756C-24.0792 124.255 117.921 73.7554 89.4204 23.2554Z" fill="url(#paint3_linear_54_163)" />
         <defs>
             <linearGradient id="paint0_linear_54_163" x1="9.5" y1="16" x2="60.5" y2="220" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#802626" />
-                <stop offset="1" stop-color="#FF0000" />
+                <stop stopColor="#802626" />
+                <stop offset="1" stopColor="#FF0000" />
             </linearGradient>
             <linearGradient id="paint1_linear_54_163" x1="120.586" y1="-11.0135" x2="180.747" y2="199.504" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FF0000" />
-                <stop offset="1" stop-color="#802626" />
+                <stop stopColor="#FF0000" />
+                <stop offset="1" stopColor="#802626" />
             </linearGradient>
             <linearGradient id="paint2_linear_54_163" x1="152" y1="104.5" x2="97" y2="177" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#802626" />
-                <stop offset="1" stop-color="#FF0000" />
+                <stop stopColor="#802626" />
+                <stop offset="1" stopColor="#FF0000" />
             </linearGradient>
             <linearGradient id="paint3_linear_54_163" x1="122" y1="38.5" x2="65.5" y2="166" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FF0000" />
-                <stop offset="1" stop-color="#802626" />
+                <stop stopColor="#FF0000" />
+                <stop offset="1" stopColor="#802626" />
             </linearGradient>
         </defs>
     </svg>

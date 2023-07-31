@@ -19,6 +19,7 @@ const NavBar = () => {
         axios.post("http://localhost:8000/api/services/user/me", user_token).then(data => data.data).then(data => {
             if (data.status === "success") {
                 store.setUser(data.data);
+                axios.post("http://localhost:8000/api/services/campaigns/get",user_token).then(data => console.log(data.data));
             }
         })
     }, [])
