@@ -7,11 +7,10 @@ import * as Components from '../../components';
 const WelcomePage = () => {
     return (<div className="welcome-page">
         <div className="welcome-page-main">
-            <Logo />
-            <div className="welcome-page-main-name">
-                <p>CS League</p>
+            <div className='header'>
+                <h1>Bienvenue sur CS League !</h1>
+                <p>Parie gratuitement dès maintenant sur les évènements les plus chauds de CS et deviens une légende en gagnant des lots incroyables !</p>
             </div>
-            <Components.ClassicButton text={"Commencer à jouer"} icon={<Components.BetIcon />} />
         </div>
 
         <div className="welcome-page-news">

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    margin-top:10rem;
+    margin-top: 10rem;
 }
 
 .welcome-page-main {
@@ -21,4 +21,42 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
+}
+
+
+.header {
+    margin-top: 15rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    width: 40%;
+
+    margin-bottom:15rem;
+}
+
+.header h1 {
+    text-align: center;
+
+    color: var(--color-secondary);
+    /* Heading 1 Bold */
+    font-family: var(--font-family);
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header p {
+    width: 80%;
+
+    color: var(--color-secondary, #802626);
+    text-align: center;
+    /* Paragraph 1 */
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
