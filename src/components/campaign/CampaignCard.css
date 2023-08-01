@@ -61,7 +61,7 @@
 }
 
 #campaign-card-list {
-    background: rgb(221, 221, 221);
+    background: rgb(241, 241, 241);
     padding: 2rem 0rem 2rem 0rem;
     min-height: 30rem;
     width: 100%;
@@ -177,4 +177,5 @@
 
 .campaign-card-list-container {
     position: relative;
+    margin-bottom:10rem;
 }

@@ -29,6 +29,7 @@ const App = () => {
                 <Route path="/" element={<Pages.WelcomePage />} />
                 <Route path="/oauth" element={<Pages.AuthPage />} />
                 <Route path="/oauth/error" element={<p>Une erreur est survenue!</p>} />
+                <Route path="/campaign" element={<Pages.CampaignPage />} />
                 <Route path="*" element={<p>Cette page n'existe pas!</p>} />
             </Routes>
         </BrowserRouter>

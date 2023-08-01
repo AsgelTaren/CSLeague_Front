@@ -1,5 +1,6 @@
 import React from 'react';
 import { Campaign } from '../../core';
+import { useNavigate } from "react-router-dom";
 
 // Css import
 import './CampaignCard.css';
@@ -8,9 +9,10 @@ import './CampaignCard.css';
 import * as Assets from '../../assets';
 
 const CampaignCard = ({ campaign, selected = false, id = -1 }) => {
+    const navigate = useNavigate()
     if (campaign)
         return (
-            <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id}>
+            <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id} onClick={() => { navigate("/campaigns?id=" + campaign.id) }}>
                 <div className='campaign-card-background'>
                     <img src={campaign.image} alt='background' />
                 </div>
@@ -44,7 +46,7 @@ class CampaignCardList extends React.Component {
                     </div>
                 </div>
                 <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}><img src={Assets.previous} alt="previous" /></div>
-                    <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}><img src={Assets.next} alt="next" /></div>
+                <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}><img src={Assets.next} alt="next" /></div>
             </div>)
     }
 
@@ -54,12 +56,8 @@ class CampaignCardList extends React.Component {
 }
 CampaignCardList.defaultProps = {
     campaigns: [
-        new Campaign('TOSS', Assets.campaign_test, 'rgb(255,0,0)', Assets.toss_logo),
-        new Campaign('WEI', Assets.wei, 'rgb(255,0,0)', Assets.toss_logo),
-        new Campaign('WEI', Assets.wei, 'rgb(255,0,0)', Assets.toss_logo),
-        new Campaign('WEI', Assets.wei, 'rgb(255,0,0)', Assets.toss_logo),
-        new Campaign('WEI', Assets.wei, 'rgb(255,0,0)', Assets.toss_logo),
-        new Campaign('WEI', Assets.wei, 'rgb(255,0,0)', Assets.toss_logo),
+        new Campaign(0, 'TOSS', Assets.campaign_test, Assets.toss_logo),
+        new Campaign(1, 'WEI', Assets.wei, Assets.toss_logo),
     ]
 }
 

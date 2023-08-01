@@ -1,9 +1,9 @@
 class Campaign {
 
-    constructor(name, image, color, icon) {
+    constructor(id, name, image, icon) {
+        this.id = id;
         this.name = name;
         this.image = image;
-        this.color = color;
         this.icon = icon;
     }
 
