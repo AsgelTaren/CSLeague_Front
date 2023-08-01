@@ -143,7 +143,7 @@
     position: absolute;
 
     z-index: 4;
-    top: 55%;
+    top: 45%;
     transition: all 0.2s ease-in-out;
 }
 
@@ -169,8 +169,12 @@
 .campaign-card-date {
     color: white;
     font-family: var(--font-family);
-    font-weight:400;
-    font-size:1.5rem;
-    margin-right:-1rem;
-    margin-top:0.5rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-right: -1rem;
+    margin-top: 0.5rem;
+}
+
+.campaign-card-list-container {
+    position: relative;
 }

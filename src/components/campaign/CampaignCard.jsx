@@ -36,14 +36,16 @@ class CampaignCardList extends React.Component {
         let campaigns = this.props.campaigns;
         let total = campaigns.length;
         campaigns = [null, null, null, null, null, null, ...campaigns, null, null, null, null]
-        return (<div id="campaign-card-list">
-            <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}><img src={Assets.previous} alt="previous" /></div>
-            <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}><img src={Assets.next} alt="next" /></div>
-            <div id="campaign-card-list-inner">
-                {campaigns.map((campaign, index) => <CampaignCard campaign={campaign} key={index} id={"campaign-card-" + index} />)}
-            </div>
-
-        </div>)
+        return (
+            <div className="campaign-card-list-container">
+                <div id="campaign-card-list">
+                    <div id="campaign-card-list-inner">
+                        {campaigns.map((campaign, index) => <CampaignCard campaign={campaign} key={index} id={"campaign-card-" + index} />)}
+                    </div>
+                </div>
+                <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}><img src={Assets.previous} alt="previous" /></div>
+                    <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}><img src={Assets.next} alt="next" /></div>
+            </div>)
     }
 
     componentDidMount() {
@@ -66,7 +68,6 @@ var currentItem = 0;
 const carouselMove = (dir, total) => {
     let pos = []
     var cards = Array.from(document.querySelectorAll("#campaign-card-list-inner > div"))
-    let inner = document.getElementById("campaign-card-list-inner")
     cards.forEach(value => pos.push(value.offsetLeft))
     if (dir === "next") {
         currentItem++;
