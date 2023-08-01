@@ -2,6 +2,23 @@
 
 :root {
     --font-family: 'Roboto', sans-serif;
-    --main-gradient: linear-gradient(180deg, rgba(255, 0, 0, 1) 0%, rgba(128, 35, 38, 1) 100%);
-    --color-secondary:rgb(128,38,38);
+
+    --color-primary: rgba(255, 0, 0, 1);
+    --color-secondary: rgb(128, 38, 38);
+    --vertical-gradient: linear-gradient(180deg, rgba(255, 0, 0, 1) 0%, rgba(128, 35, 38, 1) 100%);
+    --horizontal-gradient: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(128, 35, 38, 1) 100%);
+
+    --white: rgba(255, 250, 250, 1);
+
+    --black-100: rgba(50, 15, 15, 1);
+    --black-75: rgba(50, 15, 15, 0.75);
+    --black-50: rgba(50, 15, 15, 0.5);
+    --black-25: rgba(50, 15, 15, 0.25);
+    --black-10: rgba(50, 15, 15, 0.1);
+    --black-05: rgba(50, 15, 15, 0.05);
+
+    --color-error: rgba(255, 61, 0, 1);
+
+    --primary-shadow: 2px 2px 2px 0px rgba(128, 38, 38, 0.25);
+    --secondary-shadow: 4px 4px 4px 0px rgba(128, 38, 38, 0.25);
 }

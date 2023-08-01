@@ -20,7 +20,7 @@
 }
 
 .navbar-logo p {
-    background: var(--main-gradient);
+    background: var(--vertical-gradient);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
@@ -30,24 +30,31 @@
     display: flex;
     margin-right: 2rem;
     align-items: center;
+    gap:2rem;
 }
 
 .navbar-left {
     display: flex;
     align-items: center;
-    margin-left:2rem;
+    margin-left: 2rem;
 }
 
 .userpin {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    background: rgb(156, 156, 156);
     padding: 0.8rem;
     border-radius: 4rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-family: var(--font-family);
-    color: white
+}
+
+.userpin>p,
+.navbar-items>p {
+    background: var(--vertical-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .userpin img {
@@ -63,9 +70,19 @@
     font-weight: 700;
     padding: 0.8rem;
     color: var(--color-secondary);
+    cursor:pointer;
 }
 
 .user-login:hover {
     border-bottom: 4px solid var(--color-secondary);
     margin-bottom: -4px;
+}
+
+.navbar-items {
+    display: flex;
+    gap: 2rem;
+    margin-left: 2rem;
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    align-items: center;
 }
