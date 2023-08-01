@@ -19,6 +19,12 @@
     font-weight: 700;
 }
 
+.navbar-logo:hover {
+    filter: drop-shadow(2px 2px 4px rgba(128, 38, 38, 0.40));
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
 .navbar-logo p {
     background: var(--vertical-gradient);
     -webkit-text-fill-color: transparent;
@@ -30,7 +36,7 @@
     display: flex;
     margin-right: 2rem;
     align-items: center;
-    gap:2rem;
+    gap: 2rem;
 }
 
 .navbar-left {
@@ -70,7 +76,7 @@
     font-weight: 700;
     padding: 0.8rem;
     color: var(--color-secondary);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .user-login:hover {
@@ -82,7 +88,53 @@
     display: flex;
     gap: 2rem;
     margin-left: 2rem;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-items-underline {
+    height: 2px;
+    margin-top: 0.2rem;
+    width: 100%;
+    background: var(--color-secondary);
+    position: absolute;
+    transform: scale(0);
+    transform-origin: center 100;
+    border-radius: 4rem;
+}
+
+.navbar-item:hover .navbar-items-underline {
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-item {
+    cursor: pointer;
+    position: relative;
     font-family: var(--font-family);
     font-size: 1.4rem;
-    align-items: center;
+
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.navbar-right>svg:hover {
+    animation: wiggle 0.5s forwards;
+    cursor: pointer;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: none
+    }
+
+    33% {
+        transform: rotate(20deg) scale(1.08)
+    }
+
+    66% {
+        transform: rotate(-20deg) scale(1.08)
+    }
 }

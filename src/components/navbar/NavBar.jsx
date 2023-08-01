@@ -31,21 +31,28 @@ const NavBar = () => {
         <div className="navbar-left">
             <div className="navbar-logo">
                 <Logo size="3.5rem" />
-                <p> CS League</p>
             </div>
             <div className="navbar-items">
-                <p>Mes paris</p>
+                <NavBarItem text="Mes Paris" navigate={navigate} />
+                <NavBarItem text="A Venir" navigate={navigate} />
             </div>
         </div>
 
         <div className="navbar-right">
-            {!store.user ? <p className="user-login" onClick={() => navigate("/oauth")}>Connexion</p> : <UserPin user={store.user} />}
+            {!store.user ? <NavBarItem text="Connexion" navigate={navigate} target="/oauth" /> : <UserPin user={store.user} />}
             <Components.Logo_Instagram />
         </div>
 
     </div>)
 
 };
+
+const NavBarItem = ({ text, target, navigate }) => {
+    return (<div className="navbar-item" onClick={() => navigate(target)}>
+        <p>{text}</p>
+        <div className="navbar-items-underline"> </div>
+    </div>)
+}
 
 const UserPin = ({ user }) => {
 
