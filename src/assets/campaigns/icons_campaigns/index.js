@@ -1,0 +1,1 @@
+export { default as toss } from './toss.png';

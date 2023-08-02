@@ -1,0 +1,66 @@
+.campaign-image {
+    height: 15rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.campaign-page{
+    position: relative;
+    min-height:100vh;
+}
+
+.campaign-image>img {
+    object-fit: cover;
+    margin-top: -40%;
+    filter: blur(5px);
+}
+
+.campaign-infos {
+    display: flex;
+    margin-top: -3.5rem;
+}
+
+.campaign-infos-title {
+    background: rgb(161, 0, 0);
+    display: flex;
+    position: relative;
+    padding: 1rem 3rem 1rem 5rem;
+    color: white;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    border-radius: 0 8rem 8rem 0;
+    gap: 2rem;
+}
+
+.campaign-infos-title>img {
+    max-width: 5rem;
+    max-height: 5rem;
+}
+
+.campaign-infos-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campaign-desc>p {
+    max-width: 70%;
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    text-align: center;
+    color: rgb(161, 0, 0);
+    margin-top:6rem;
+}
+
+.campaign-page-bets{
+    display:flex;
+    padding:4rem;
+    gap:2rem;
+}

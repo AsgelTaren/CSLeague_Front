@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Campaign } from '../../core';
 import { useNavigate } from "react-router-dom";
 
@@ -8,11 +8,11 @@ import './CampaignCard.css';
 // Import assets
 import * as Assets from '../../assets';
 
-const CampaignCard = ({ campaign, selected = false, id = -1 }) => {
+const CampaignCard = ({ campaign, selected }) => {
     const navigate = useNavigate()
     if (campaign)
         return (
-            <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id} onClick={() => { navigate("/campaigns?id=" + campaign.id) }}>
+            <div className={"campaign-card " + (selected ? "selectedCard" : "")} onClick={() => { navigate("/campaign?id=" + campaign.id) }}>
                 <div className='campaign-card-background'>
                     <img src={campaign.image} alt='background' />
                 </div>
@@ -42,23 +42,16 @@ class CampaignCardList extends React.Component {
             <div className="campaign-card-list-container">
                 <div id="campaign-card-list">
                     <div id="campaign-card-list-inner">
-                        {campaigns.map((campaign, index) => <CampaignCard campaign={campaign} key={index} id={"campaign-card-" + index} />)}
+                        {campaigns.map((campaign, index) => <CampaignCard campaign={campaign} key={index} selected={index === 7} />)}
                     </div>
                 </div>
                 <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}><img src={Assets.previous} alt="previous" /></div>
                 <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}><img src={Assets.next} alt="next" /></div>
             </div>)
     }
-
-    componentDidMount() {
-        carouselMove("previous")
-    }
 }
 CampaignCardList.defaultProps = {
-    campaigns: [
-        new Campaign(0, 'TOSS', Assets.campaign_test, Assets.toss_logo),
-        new Campaign(1, 'WEI', Assets.wei, Assets.toss_logo),
-    ]
+    campaigns: []
 }
 
 var currentItem = 0;
@@ -69,7 +62,8 @@ const carouselMove = (dir, total) => {
     cards.forEach(value => pos.push(value.offsetLeft))
     if (dir === "next") {
         currentItem++;
-    } else {
+    }
+    if (dir === "previous") {
         currentItem--;
     }
     if (currentItem < 0) {
@@ -84,10 +78,11 @@ const carouselMove = (dir, total) => {
     })
 
     for (var i = 0; i < total; i++) {
-        console.log(cards[i + 6])
         cards[i + 6].classList.remove("selectedCard")
     }
+    console.log(currentItem)
+    console.log(cards[currentItem + 6])
     cards[6 + currentItem].classList.add("selectedCard")
 }
 
-export { CampaignCard, CampaignCardList }
+export { CampaignCard, CampaignCardList, carouselMove }

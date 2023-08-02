@@ -51,10 +51,10 @@
     cursor: pointer;
 
     /* Heading 2 Bold */
-    font-family: var(--font-heading);
+    font-family: var(--font-family);
     font-size: 0rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
 
     background: var(--white);
@@ -68,7 +68,7 @@
 }
 
 .bouton-retour:hover {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     box-shadow: var(--secondary-shadow);
 }
 
@@ -103,6 +103,12 @@
 .head svg {
     width: 1.5rem;
     height: auto;
+}
+
+.container__bouton-retour{
+    z-index:4;
+    position:relative;
+    margin:1rem;
 }
 
 @keyframes left-to-right {

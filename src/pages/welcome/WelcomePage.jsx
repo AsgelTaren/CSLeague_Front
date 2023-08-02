@@ -15,6 +15,7 @@ const WelcomePage = () => {
             if (data.status === "success") {
                 setCampaigns(data.data.map(item =>
                     new Campaign(item.id, item.name, campaigns_images[item.image], campaigns_icons[item.icon])))
+                Components.carouselMove(undefined, data.data.length)
             } else {
 
             }
