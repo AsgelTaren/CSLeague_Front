@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     transition: all 0.1s ease-in-out;
-    width:20rem;
+    width: 20rem;
 }
 
 .bet-card-background {
@@ -35,7 +35,7 @@
     color: white;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-    width:100%;
+    width: 100%;
 }
 
 .bet-card-content>img {
@@ -48,6 +48,7 @@
     max-width: 80%;
     text-align: center;
     color: white;
+    height: 7rem;
 }
 
 .bet-card-separator {
@@ -74,4 +75,16 @@
 .bet-card:hover .bet-card-content img {
     transform: rotate(360deg);
     transition: all 0.4s ease-in-out;
+}
+
+.bet-card-type {
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    justify-content: center;
+}
+
+.bet-card-type>img {
+    max-width: 2rem;
+    max-height: 2rem;
 }

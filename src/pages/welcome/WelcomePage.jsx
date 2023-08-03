@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Logo } from '../../components';
-import axios from 'axios';
 
 import './WelcomePage.css';
 import * as Components from '../../components';
-import { Campaign } from '../../core';
-import { campaigns_icons, campaigns_images } from '../campaign/CampaignPage';
+import { getAllCampaigns } from '../../core';
 
 const WelcomePage = () => {
     const [campaigns, setCampaigns] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/services/campaigns/getAll").then(data => data.data).then(data => {
-            if (data.status === "success") {
-                setCampaigns(data.data.map(item =>
-                    new Campaign(item.id, item.name, campaigns_images[item.image], campaigns_icons[item.icon])))
-                Components.carouselMove(undefined, data.data.length)
-            } else {
-
-            }
-        })
+        getAllCampaigns().then(campaigns => setCampaigns(campaigns))
     }, [])
     return (<div className="welcome-page">
         <div className="welcome-page-main">

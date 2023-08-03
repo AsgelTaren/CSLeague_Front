@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { createUserDataStore } from '../../core/UserDataStore';
+import { createUserDataStore } from '../../core/';
 import Cookies from "universal-cookie";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import getGoogleURL from '../../utils/getGoogleURL';
 import { Logo } from '..';
 import * as Components from '../../components';
 

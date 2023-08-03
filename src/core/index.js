@@ -1,2 +1,3 @@
-export { Campaign } from './Campaign';
-export { Bet, betOfString } from './Bet';
+export { Campaign, getCampaign, getAllCampaigns } from './Campaign';
+export { Bet, betFromJSON, getBet } from './Bet';
+export { User, createUserDataStore } from './User';
