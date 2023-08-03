@@ -1,10 +1,12 @@
-import React from 'react'
-import './Buttons.css'
+import React from 'react';
+import './Buttons.css';
+import * as Assets from '../../assets';
+import getGoogleURL from '../../utils/getGoogleURL';
 
-const BoutonRetour = ({ onClick = () => { } }) => {
+const BoutonRetour = () => {
     return (
         <div className='container__bouton-retour'>
-            <button className='bouton-retour'onClick={onClick}>
+            <button className='bouton-retour'>
                 <div className='arrow'>
                     <div className='head'>
                         <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,4 +43,27 @@ const ClassicButton = ({ text, icon }) => {
     )
 }
 
-export { ClassicButton, BoutonRetour }
+const NavigationButton = ({ text }) => {
+    return (
+        <div className='navigation-tabs' >
+            <p>{text}</p>
+
+            <div className='bottom-line'>
+                <div className='bottom-line-left'></div>
+                <div className='bottom-line-right'></div>
+            </div>
+        </div>
+    )
+}
+
+const ConnexionButton = ({ text, icon, link }) => {
+    return (
+        <div className='connexion-button-container'>
+            {/* onClick={() => { window.location = getGoogleURL({ link }) }}> */}
+            <img src={icon} alt="google" />
+            <p>{text}</p>
+        </div>
+    )
+}
+
+export { ClassicButton, BoutonRetour, NavigationButton, ConnexionButton }

@@ -1,0 +1,153 @@
+.betpage-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 8rem;
+    gap: 12rem;
+}
+
+.betpage-bouton-retour {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+
+.betpage-header {
+    color: var(--color-secondary);
+    font-family: var(--font-family);
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+
+    max-width: 50%;
+}
+
+.betpage-partners {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+    padding: 2rem;
+
+    width: 100%;
+    background: var(--black-05);
+}
+
+.partner-left {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.1s ease-in-out;
+}
+
+.partner-left p {
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 2.9rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    background: var(--vertical-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: all 0.1s ease-in-out;
+}
+
+.partner-right {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.1s ease-in-out;
+}
+
+.partner-right p {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 2.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.partner-right img {
+    height: 8rem;
+    border-radius: 10px;
+}
+
+.partner-left:hover,
+.partner-right:hover {
+    transform: scale(1.05);
+}
+
+
+.betpage-prizes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+    gap: 2rem;
+
+    width: 100%;
+}
+
+.prizes-title {
+    color: var(--color-secondary);
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.prizes-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4rem;
+}
+
+.prize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.prize img {
+    transition: all 0.1s ease-in-out;
+}
+
+.prize:hover img {
+    transform: scale(1.05);
+}
+
+.prize p {
+    color: var(--color-secondary);
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

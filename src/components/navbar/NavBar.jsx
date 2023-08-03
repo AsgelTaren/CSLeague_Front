@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { createUserDataStore } from '../../core/';
 import Cookies from "universal-cookie";
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { Logo } from '..';
+import * as Components from '../../components';
+import getGoogleURL from '../../utils/getGoogleURL';
+import { Logo, Logo_Instagram, NavigationButton } from '..';
+import { useNavigate } from 'react-router-dom';
 import * as Components from '../../components';
 
 import './NavBar.css';
@@ -11,7 +13,6 @@ import './NavBar.css';
 const NavBar = () => {
     const store = createUserDataStore();
     const cookies = new Cookies();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (!cookies.get("user_token")) return;
@@ -23,34 +24,32 @@ const NavBar = () => {
                 store.setUser(data.data);
             }
         })
-    }, [])
+    }, []);
+
+    let navigate = useNavigate();
 
     return (<div className="navbar">
         <div className="navbar-left">
-            <div className="navbar-logo">
-                <Logo size="3.5rem" />
+            <div className='navbar-left__logo-csleague logo' onClick={() => { navigate('/') }}>
+                <Logo size="100%" />
             </div>
-            <div className="navbar-items">
-                <NavBarItem text="Mes Paris" navigate={navigate} />
-                <NavBarItem text="A Venir" navigate={navigate} />
+            <div className='navbar-left__navigation-tabs'>
+                <NavigationButton text="Mes Paris" />
             </div>
         </div>
 
         <div className="navbar-right">
-            {!store.user ? <NavBarItem text="Connexion" navigate={navigate} target="/oauth" /> : <UserPin user={store.user} />}
-            <Components.Logo_Instagram />
+            <div className='connexion-button' onClick={() => { navigate('/oauth') }}>
+                <Components.NavigationButton text='Connexion' />
+            </div>
+            <div className="navbar-right__logo-instagram logo">
+                <Logo_Instagram size="100%" className="navbar__logo-instagram" />
+            </div>
         </div>
 
     </div>)
 
 };
-
-const NavBarItem = ({ text, target, navigate }) => {
-    return (<div className="navbar-item" onClick={() => navigate(target)}>
-        <p>{text}</p>
-        <div className="navbar-items-underline"> </div>
-    </div>)
-}
 
 const UserPin = ({ user }) => {
 

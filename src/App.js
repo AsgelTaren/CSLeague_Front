@@ -8,18 +8,28 @@ import * as Components from './components';
 
 import './App.css';
 
+import * as Assets from './assets';
+
 // Main code of the website
 const App = () => {
     return (<div>
         <BrowserRouter>
-            <Components.NavBar />
+            {/* <Components.NavBar /> */}
             <Routes>
                 <Route path="/" element={<Pages.WelcomePage />} />
                 <Route path="/oauth" element={<Pages.AuthPage />} />
                 <Route path="/oauth/error" element={<p>Une erreur est survenue!</p>} />
-                <Route path="/campaign" element={<Pages.CampaignPage />} />
-                <Route path="/bet" element={<Pages.BetPage />} />
                 <Route path="*" element={<p>Cette page n'existe pas!</p>} />
+                <Route path="/contact" element={<Pages.ContactPage />} />
+                <Route path="/prizes" element={<Pages.PrizePage
+                    partnerName="CS FINANCE"
+                    partnerLogo={Assets.csfinance_logo}
+                    prizeData={[
+                        { id: 0, logo: Assets.airpods, name: 'AirPods' },
+                        { id: 1, logo: Assets.macbookpro, name: 'MacBook Pro' },
+                        { id: 2, logo: Assets.jblcharge, name: 'JBL Charge 5' },
+                    ]}
+                />} />
             </Routes>
         </BrowserRouter>
     </div>)

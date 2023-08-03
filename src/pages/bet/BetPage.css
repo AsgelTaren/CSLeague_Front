@@ -1,0 +1,150 @@
+.campaign-image {
+    height: 16rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.campaign-image>img {
+    object-fit: cover;
+    margin-top: -40%;
+    filter: blur(4px);
+}
+
+.bet-page-bouton-retour {
+    /* border: 1px solid black; */
+    z-index: 100;
+
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    margin-bottom: -4.8rem;
+}
+
+.bet-infos {
+    display: flex;
+    margin-top: -2.5rem;
+
+    /* border: 1px solid black; */
+}
+
+.bet-infos-title {
+    display: flex;
+    position: relative;
+    margin-left: 5rem;
+    color: var(--color-primary);
+    align-items: center;
+    font-size: 2.9rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    gap: 2rem;
+
+    /* border: 1px solid black; */
+}
+
+.bet-infos-title>img {
+    max-width: 5rem;
+    max-height: 5rem;
+    /* width: 5rem;
+    height: 5rem; */
+
+    /* border: 1px solid black; */
+}
+
+.bet-infos-container {
+    display: flex;
+    flex-direction: column;
+
+    /* border: 1px solid black; */
+}
+
+.bet-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: 1px solid black; */
+}
+
+.bet-desc>p {
+    max-width: 70%;
+    font-size: 1.625rem;
+    font-family: var(--font-family);
+    text-align: center;
+    color: var(--color-secondary);
+    margin-top: 6.5rem;
+}
+
+.campaign-prizes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* width: 100%; */
+    margin-top: 8rem;
+    padding: 1.5rem 3rem;
+
+    background: var(--black-05);
+}
+
+.campaign-prizes-left,
+.campaign-prizes-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    color: var(--color-secondary);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    gap: 1rem;
+
+    transition: all 0.1s ease-in-out;
+
+    /* border: 1px solid black; */
+}
+
+.campaign-prizes-left img,
+.campaign-prizes-right img {
+    height: 4rem;
+}
+
+.campaign-prizes-left:hover,
+.campaign-prizes-right:hover {
+    transform: scale(1.05);
+}
+
+.a-vos-marques {
+    margin-top: 8rem;
+
+    color: var(--color-primary);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.bet-container {
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+.choice {
+    border: 1px solid black;
+
+    padding: 2rem;
+    text-align: center;
+}
