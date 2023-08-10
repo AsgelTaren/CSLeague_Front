@@ -68,25 +68,7 @@ const BetPage = () => {
             <h1 className="a-vos-marques">A vos marques, prêts, pariez !</h1>
         </div>
 
-        <div className="bet-container">
-            {/* {choices.map((choice, index) => <Components.BetChoice choice={choice} key={index} />)} */}
-            <div className="choice">
-                <p>PLK</p>
-                <img src={Assets.plk} alt="choice-1" />
-            </div>
-            <div className="choice">
-                <p>SCH</p>
-                <img src={Assets.sch} alt="choice-2" />
-            </div>
-            <div className="choice">
-                <p>Johnny</p>
-                <img src={Assets.johnny} alt="choice-3" />
-            </div>
-            <div className="choice">
-                <p>Eminem</p>
-                <img src={Assets.eminem} alt="choice-4" />
-            </div>
-        </div>
+        <Components.Choices />
     </div>)
 };
 

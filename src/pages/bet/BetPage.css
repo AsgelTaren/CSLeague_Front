@@ -129,22 +129,3 @@
     font-weight: 700;
     line-height: normal;
 }
-
-.bet-container {
-    border: 1px solid black;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-}
-
-.choice {
-    border: 1px solid black;
-
-    padding: 2rem;
-    text-align: center;
-}
