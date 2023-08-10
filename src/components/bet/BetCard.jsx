@@ -4,10 +4,6 @@ import moment from "moment";
 import { bet_types, bet_types_icons } from '../../assets';
 // import moment from "moment";
 import { Bet } from '../../core';
-import { useNavigate } from "react-router-dom";
-import moment from "moment";
-import { bet_types, bet_types_icons } from '../../assets';
-// import moment from "moment";
 
 import './BetCard.css';
 

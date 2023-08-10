@@ -17,6 +17,8 @@ const App = () => {
             {/* <Components.NavBar /> */}
             <Routes>
                 <Route path="/" element={<Pages.WelcomePage />} />
+                <Route path="/campaign" element={<Pages.CampaignPage />} />
+                <Route path="/bet" element={<Pages.BetPage />} />
                 <Route path="/oauth" element={<Pages.AuthPage />} />
                 <Route path="/oauth/error" element={<p>Une erreur est survenue!</p>} />
                 <Route path="*" element={<p>Cette page n'existe pas!</p>} />

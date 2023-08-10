@@ -1,5 +1,5 @@
 import React from 'react';
-import './BetPage.css';
+import './PrizePage.css';
 import * as Components from '../../components';
 import * as Assets from '../../assets';
 import { useNavigate } from 'react-router-dom';
@@ -37,4 +37,4 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
     )
 }
 
-export { BetPage }
+export { PrizePage }

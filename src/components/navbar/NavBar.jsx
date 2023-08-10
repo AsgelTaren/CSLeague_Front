@@ -6,7 +6,6 @@ import * as Components from '../../components';
 import getGoogleURL from '../../utils/getGoogleURL';
 import { Logo, Logo_Instagram, NavigationButton } from '..';
 import { useNavigate } from 'react-router-dom';
-import * as Components from '../../components';
 
 import './NavBar.css';
 
