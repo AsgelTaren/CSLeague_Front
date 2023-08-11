@@ -23,8 +23,9 @@ const App = () => {
                 <Route path="/oauth/error" element={<p>Une erreur est survenue!</p>} />
                 <Route path="*" element={<p>Cette page n'existe pas!</p>} />
                 <Route path="/contact" element={<Pages.ContactPage />} />
+                {/* <Route path="/prizes" element={<Pages.PrizePage />} /> */}
                 <Route path="/prizes" element={<Pages.PrizePage
-                    partnerName="CS FINANCE"
+                    partnerName="CS Finance"
                     partnerLogo={Assets.csfinance_logo}
                     prizeData={[
                         { id: 0, logo: Assets.airpods, name: 'AirPods' },

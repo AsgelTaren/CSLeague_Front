@@ -4,7 +4,7 @@ import { campaigns_icons_map, campaigns_images_map } from "../assets";
 import axios from "axios";
 
 class Bet {
-    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign) {
+    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign, choice_name, choice_background) {
         this.id = id;
         this.name = name;
         this.bet_type = bet_type;
@@ -13,6 +13,8 @@ class Bet {
         this.image = image;
         this.icon = icon;
         this.campaign = campaign;
+        this.choice_name = choice_name;
+        this.choice_background = choice_background;
     }
 
     async getCampaign() {
@@ -29,7 +31,9 @@ const betFromJSON = (data) => {
         moment(data.date_end, 'YYYY-MM-DD HH:mm').toDate(),
         campaigns_images_map[data.image],
         campaigns_icons_map[data.icon],
-        data.campaign
+        data.campaign,
+        data.choice_name,
+        data.choice_background
     )
 }
 

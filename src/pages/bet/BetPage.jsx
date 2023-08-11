@@ -4,6 +4,7 @@ import * as Components from '../../components';
 import * as Assets from '../../assets';
 import { bet_types } from "../../assets";
 import { getBet } from "../../core";
+import { choices_backgrounds_map } from '../../assets';
 
 import './BetPage.css';
 
@@ -13,6 +14,9 @@ const BetPage = () => {
     const [bet, setBet] = useState(null);
     const [campaign, setCampaign] = useState(null);
     const navigate = useNavigate();
+
+    console.log(bet);
+
     useEffect(() => {
         if (!searchParams.get("id")) return;
         getBet(searchParams.get("id")).then(bet => {
@@ -24,9 +28,22 @@ const BetPage = () => {
 
     }, [searchParams])
 
+    const choices_names = bet.choice_name.split(",");
+    const choices_backgrounds = bet.choice_background.split(",");
+
+    let choices = [];
+    for (let pas = 0; pas < choices_backgrounds.length; pas++) {
+        let emptyList = [];
+        let toConcatenate = emptyList.concat(choices_names[pas], choices_backgrounds_map[choices_backgrounds[pas]]);
+        console.log(toConcatenate);
+        let newLength = choices.push(toConcatenate);
+    };
+
+    // console.log(choices);
+
     if (!bet || !campaign) {
         return (<div>
-            <p>Ce paris n'est pas valide</p>
+            <p>Ce pari n'est pas valide</p>
         </div>)
     }
     return (<div className="bet-page">
@@ -68,7 +85,10 @@ const BetPage = () => {
             <h1 className="a-vos-marques">A vos marques, prêts, pariez !</h1>
         </div>
 
-        <Components.Choices />
+        <div className="choices-container">
+            {choices.map((choice, index) => <Components.Choices choice_data={choice} key={index} />)}
+        </div>
+
     </div>)
 };
 

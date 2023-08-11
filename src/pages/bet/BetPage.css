@@ -129,3 +129,17 @@
     font-weight: 700;
     line-height: normal;
 }
+
+.choices-container {
+    /* border: 1px solid black; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+
+    gap: 1rem;
+}

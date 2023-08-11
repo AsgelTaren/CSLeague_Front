@@ -7,21 +7,23 @@ import * as Assets from '../../assets';
 import './CampaignPage.css';
 
 const CampaignPage = () => {
-    const [campaign, setCampaign] = useState()
+    const [campaign, setCampaign] = useState();
     const [bets, setBets] = useState([]);
-
+    
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
-
+    
+    
     useEffect(() => {
         if (!searchParams.get("id")) return;
         getCampaign(searchParams.get("id")).then(campaign => {
             setCampaign(campaign);
             campaign.getBets().then(bets => setBets(bets))
         })
-
+        
     }, [searchParams])
 
+    console.log(campaign);
 
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)

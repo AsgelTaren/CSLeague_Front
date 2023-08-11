@@ -1,22 +1,65 @@
-import React from 'react';
-import './PrizePage.css';
+import React, { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { getCampaign } from '../../core';
 import * as Components from '../../components';
 import * as Assets from '../../assets';
-import { useNavigate } from 'react-router-dom';
+import { campaigns_prizes_map } from '../../assets';
+
+import './PrizePage.css';
 
 const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
-    let navigate = useNavigate()
     const firstThreePrizes = prizeData.slice(0, 3);
+
+    const [campaign, setCampaign] = useState()
+    const [bets, setBets] = useState([]);
+    
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();   
+    
+    useEffect(() => {
+        if (!searchParams.get("id")) return;
+        getCampaign(searchParams.get("id")).then(campaign => {
+            setCampaign(campaign);
+            campaign.getBets().then(bets => setBets(bets))
+        })
+        
+    }, [searchParams])
+
+    console.log(campaign);
+
+    if (!campaign) {
+        return (<div><p>Cette campagne n'existe pas</p></div>)
+    }
+
+    console.log(campaign.prize_name, campaign.prize_icon)
+    const prizes_names = campaign.prize_name.split(",");
+    const prizes_images = campaign.prize_icon.split(",");
+
+    let prize_data = [];
+    for (let i = 0; i < prizes_images.length; i++) {
+        let emptyList = [];
+        let toConcatenate = emptyList.concat(prizes_names[i], campaigns_prizes_map[prizes_images[i]]);
+        // console.log(toConcatenate);
+        let newLength = prize_data.push(toConcatenate);
+    }
+
+    console.log(prize_data);
+
+    
+
     return (
         <div className='betpage-container'>
             <div className='betpage-bouton-retour' onClick={() => { navigate('/') }}><Components.BoutonRetour /></div>
             <div className='betpage-header'>Profitez du WEI pour tenter de gagner des lots d’enfer !</div>
             <div className='betpage-partners'>
-                <div className='partner-left'><Components.Logo size='8rem' /></div>
+                <div className='partner-left'>
+                    <Components.Logo size='8rem' />
+                    <p>CS League</p>
+                </div>
                 <div className='partner-cross'><Components.CrossIcon /></div>
                 <div className='partner-right'>
-                    <p>{partnerName}</p>
-                    <img src={partnerLogo} alt="csfinance" />
+                    <p>{campaign.partner_name}</p>
+                    <img src={campaign.partner_icon} alt="partner-icon" />
                 </div>
             </div>
             <div className='betpage-prizes'>
@@ -32,7 +75,9 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
                 </div>
 
             </div>
-            <Components.ClassicButton text='Parier' icon={<Components.BetIcon />} />
+            <div className='prizepage-bouton-parier' >
+                <Components.ClassicButton text='Parier' icon={<Components.BetIcon />} />
+            </div>
         </div>
     )
 }
