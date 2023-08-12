@@ -29,7 +29,16 @@ class Campaign {
 }
 
 const campaignFromJSON = (data) => {
-    return new Campaign(data.id, data.name, campaigns_images_map[data.image], campaigns_icons_map[data.icon], data.desc, data.partner_name, campaigns_partner_icon_map[data.partner_icon], data.prize_name, campaigns_prizes_map[data.prize_icon])
+    return new Campaign(
+        data.id, 
+        data.name, 
+        campaigns_images_map[data.image], 
+        campaigns_icons_map[data.icon], 
+        data.desc, data.partner_name, 
+        campaigns_partner_icon_map[data.partner_icon], 
+        data.prize_name, 
+        data.prize_icon
+    )
 }
 
 const getCampaign = async (id) => {

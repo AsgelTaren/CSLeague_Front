@@ -25,13 +25,14 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
         
     }, [searchParams])
 
-    console.log(campaign);
+    // console.log(campaign);
 
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }
 
-    console.log(campaign.prize_name, campaign.prize_icon)
+    // A partir de la bdd, on construit le tableau contenant pour chaque prize son nom et son image
+    // console.log(campaign.prize_name, campaign.prize_icon)
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");
 
@@ -39,11 +40,10 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
     for (let i = 0; i < prizes_images.length; i++) {
         let emptyList = [];
         let toConcatenate = emptyList.concat(prizes_names[i], campaigns_prizes_map[prizes_images[i]]);
-        // console.log(toConcatenate);
-        let newLength = prize_data.push(toConcatenate);
+        prize_data.push(toConcatenate);
     }
 
-    console.log(prize_data);
+    // console.log(prize_data);
 
     
 
@@ -65,11 +65,11 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
             <div className='betpage-prizes'>
                 <div className='prizes-title'>A gagner :</div>
 
-                <div className='prizes-container'>
-                    {firstThreePrizes.map(item => (
-                        <div className='prize' key={item.id}>
-                            <img src={item.logo} alt={item.name} />
-                            <p className='prize-name'>{item.name}</p>
+                <div className="prizes-container">
+                    {prize_data.map((prize, index) => (
+                        <div className="prize">
+                            <img src={prize[1]} alt="prize-image" />
+                            <p className="prize-name">{prize[0]}</p>
                         </div>
                     ))}
                 </div>
