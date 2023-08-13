@@ -7,22 +7,21 @@ import { campaigns_prizes_map } from '../../assets';
 
 import './PrizePage.css';
 
-const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
-    const firstThreePrizes = prizeData.slice(0, 3);
+const PrizePage = () => {
 
     const [campaign, setCampaign] = useState()
     const [bets, setBets] = useState([]);
-    
+
     const [searchParams] = useSearchParams();
-    const navigate = useNavigate();   
-    
+    const navigate = useNavigate();
+
     useEffect(() => {
         if (!searchParams.get("id")) return;
         getCampaign(searchParams.get("id")).then(campaign => {
             setCampaign(campaign);
             campaign.getBets().then(bets => setBets(bets))
         })
-        
+
     }, [searchParams])
 
     // console.log(campaign);
@@ -45,7 +44,8 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
 
     // console.log(prize_data);
 
-    
+    const campaignIndex = campaign.id;
+
 
     return (
         <div className='betpage-container'>
@@ -66,7 +66,7 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
                 <div className='prizes-title'>A gagner :</div>
 
                 <div className="prizes-container">
-                    {prize_data.map((prize, index) => (
+                    {prize_data.map((prize, _) => (
                         <div className="prize">
                             <img src={prize[1]} alt="prize-image" />
                             <p className="prize-name">{prize[0]}</p>
@@ -75,7 +75,7 @@ const PrizePage = ({ partnerName, partnerLogo, prizeData }) => {
                 </div>
 
             </div>
-            <div className='prizepage-bouton-parier' >
+            <div className='prizepage-bouton-parier' onClick={() => { navigate('/campaign?id=' + campaignIndex) }}>
                 <Components.ClassicButton text='Parier' icon={<Components.BetIcon />} />
             </div>
         </div>
