@@ -11,6 +11,9 @@ const MyBet = () => {
             <div className='bet-image mon-pari-container'>
                 <img src={Assets.CampaignImages.wei} alt="bet-image" />
                 <h1 className='mon-pari-evt-title'>WEI</h1>
+                <div className='bet-image__campaign-logo'>
+                    <img src={Assets.CampaignIcons.toss} alt="campaign-logo" />
+                </div>
             </div>
             <div className='bet-title mon-pari-container'>Qui sera l'artiste du WEI ?</div>
             <div className='in-game mon-pari-container'>

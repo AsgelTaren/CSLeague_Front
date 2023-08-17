@@ -8,7 +8,7 @@
     width: 100%;
     height: 12rem;
 
-    background-color: var(--black-05);
+    background-color: var(--black-10);
     border-radius: 15px;
 
     overflow: hidden;
@@ -17,8 +17,25 @@
 
 
     /* border: 1px solid black; */
+    transition: all 0.1s ease-in-out;
 }
 
+.mon-pari:hover {
+    transform: scale(1.01);
+}
+
+.mon-pari:hover .bet-image>img {
+    filter: blur(0px);
+}
+
+.mon-pari:hover .bet-image h1 {
+    font-size: 3.2rem;
+}
+
+.mon-pari:hover .bet-image__campaign-logo {
+    width: 4rem;
+    height: 4rem;
+}
 
 .bet-image {
     display: flex;
@@ -37,17 +54,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--color-primary);
-
+    color: var(--white);
     text-align: center;
 
     font-family: var(--font-family);
-    font-size: 2.9rem;
+    font-size: 2.6rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    color:var(--color-primary);
 
+    transition: all 0.1s ease-in-out;
     /* border: 1px solid black; */
 }
 
@@ -56,6 +72,22 @@
     height: 100%;
     object-fit: cover;
     filter: blur(2px);
+    transition: all 0.1s ease-in-out;
+}
+
+.bet-image__campaign-logo {
+    display: flex;
+    width: 0rem;
+    height: 0rem;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+
+    transition: all 0.1s ease-in-out;
+
+    /* border: 1px solid black; */
 }
 
 
@@ -97,6 +129,12 @@
 
 .bouton-annuler {
     margin-right: 2rem;
+    border-radius: 100px;
+    transition: all 0.1s ease-in-out;
+}
+
+.bouton-annuler:hover {
+    transform: scale(1.02);
 }
 
 

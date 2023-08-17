@@ -42,6 +42,7 @@
     max-height: 8rem; */
     position: relative;
     left: -1rem;
+    top: -1rem;
     width: 4rem;
     height: 4rem;
     transition: all 0.3s ease-in-out;
@@ -125,7 +126,7 @@
     color: var(--color-secondary);
     background: var(--white);
     min-width: 10rem;
-    margin-right: -0.5rem;
+    margin-right: -0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;

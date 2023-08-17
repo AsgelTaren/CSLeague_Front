@@ -3,7 +3,7 @@
 :root {
     --font-family: 'Roboto', sans-serif;
 
-    --color-primary: rgba(255, 0, 0, 1);
+    --color-primary: rgb(231, 19, 19);
     --color-secondary: rgb(128, 38, 38);
     --vertical-gradient: linear-gradient(180deg, rgba(255, 0, 0, 1) 0%, rgba(128, 35, 38, 1) 100%);
     --horizontal-gradient: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(128, 35, 38, 1) 100%);

@@ -68,7 +68,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    transition: all 0.1s ease-in-out;
+
     /* border: 1px solid black; */
+}
+
+.header-info:hover {
+    transform: scale(1.05);
 }
 
 .container-mes-paris {
