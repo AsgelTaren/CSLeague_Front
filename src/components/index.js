@@ -6,3 +6,4 @@ export * from './logo/Icons';
 export * from './bet/BetCard';
 export * from './footer/Footer';
 export * from './choices/Choices';
+export * from './my_bet/MyBet';

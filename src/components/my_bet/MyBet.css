@@ -1,0 +1,107 @@
+.mon-pari {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    width: 100%;
+    height: 12rem;
+
+    background-color: var(--black-05);
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    /* box-shadow: var(--primary-shadow); */
+
+
+    /* border: 1px solid black; */
+}
+
+
+.bet-image {
+    display: flex;
+    width: 20%;
+    height: 100%;
+
+    position: relative;
+
+    border-right: 3px solid var(--color-primary);
+}
+
+.bet-image h1 {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-primary);
+
+    text-align: center;
+
+    font-family: var(--font-family);
+    font-size: 2.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color:var(--color-primary);
+
+    /* border: 1px solid black; */
+}
+
+.bet-image>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+
+.bet-title {
+    color: var(--color-secondary);
+    text-align: left;
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.in-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    color: var(--color-secondary);
+    text-align: left;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.in-game h2 {
+    font-size: 1.25rem;
+}
+
+.in-game h1 {
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+
+.bouton-annuler {
+    margin-right: 2rem;
+}
+
+
+
+
+/* .mon-pari-container {
+    border: 1px solid black;
+} */
