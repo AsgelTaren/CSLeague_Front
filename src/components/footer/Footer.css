@@ -23,3 +23,28 @@
 
     max-width: 60%;
 }
+
+.footer-right__logo-instagram {
+    width: 2rem;
+}
+
+@media screen and (max-width:800px) {
+    .footer-middle {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .footer-middle {
+        display: none;
+    }
+
+    .footer-container {
+        margin-top: 12rem;
+        width: 100%;
+    }
+
+    .footer-right__logo-instagram {
+        width: 1.5rem;
+    }
+}

@@ -9,18 +9,18 @@ import './CampaignPage.css';
 const CampaignPage = () => {
     const [campaign, setCampaign] = useState();
     const [bets, setBets] = useState([]);
-    
+
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
-    
-    
+
+
     useEffect(() => {
         if (!searchParams.get("id")) return;
         getCampaign(searchParams.get("id")).then(campaign => {
             setCampaign(campaign);
             campaign.getBets().then(bets => setBets(bets))
         })
-        
+
     }, [searchParams])
 
     console.log(campaign);
@@ -54,7 +54,9 @@ const CampaignPage = () => {
             <div className="campaign-prizes">
                 <div className="campaign-prizes-left">
                     <p>Organisé par :</p>
-                    <Components.Logo size="4rem" />
+                    <div className="campaign-page__logo-csleague">
+                        <Components.Logo size="100%" />
+                    </div>
                     <img src={Assets.csfinance_logo} alt="logo-partner" />
                 </div>
                 <div className="campaign-prizes-right">

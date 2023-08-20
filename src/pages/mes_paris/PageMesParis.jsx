@@ -34,7 +34,9 @@ const PageMesParis = () => {
                 </div>
             </div>
 
-            <Components.Footer />
+            <div className='page-mes-paris__footer'>
+                <Components.Footer />
+            </div>
 
         </div>
     )

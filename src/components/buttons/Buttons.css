@@ -206,3 +206,32 @@
 
     /* transform: scale(1.05); */
 }
+
+@media screen and (max-width:768px) {
+    .connexion-button-container {
+        background-color: var(--black-05);
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+    .button-classic {
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+    }
+    .button-classic svg,
+    .button-classic:hover svg {
+        width: 2rem;
+    }
+    .bouton-retour:hover {
+        font-size: 0rem;
+        box-shadow: var(--primary-shadow);
+    }
+    .bouton-retour:hover .line {
+        width: 0rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .connexion-button-container {
+        font-size: 1rem;
+    }
+}

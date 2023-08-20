@@ -85,7 +85,9 @@ const BetPage = () => {
             <div className="campaign-prizes">
                 <div className="campaign-prizes-left">
                     <p>Organisé par :</p>
-                    <Components.Logo size="4rem" />
+                    <div className="bet-page__logo-csleague">
+                        <Components.Logo size="100%" />
+                    </div>
                     <img src={campaign.partner_icon} alt="logo-partner" />
                 </div>
                 <div className="campaign-prizes-right">

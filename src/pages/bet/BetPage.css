@@ -108,6 +108,10 @@
     /* border: 1px solid black; */
 }
 
+.bet-page__logo-csleague {
+    width: 4rem;
+}
+
 .campaign-prizes-left img,
 .campaign-prizes-right img {
     height: 4rem;
@@ -142,4 +146,32 @@
     margin-bottom: 8rem;
 
     gap: 1rem;
+}
+
+@media screen and (max-width:768px) {
+    .campaign-desc>p {
+        font-size: 1.25rem;
+    }
+
+    .campaign-prizes-left,
+    .campaign-prizes-right {
+        font-size: 1rem;
+        gap: 0rem;
+    }
+
+    .campaign-prizes-left img,
+    .campaign-prizes-right img,
+    .bet-page__logo-csleague {
+        height: 3rem;
+    }
+
+    .campaign-prizes-left:hover,
+    .campaign-prizes-right:hover {
+        transform: scale(1);
+    }
+
+    .a-vos-marques {
+        font-size: 2rem;
+        margin-top: 6rem;
+    }
 }

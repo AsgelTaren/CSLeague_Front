@@ -122,3 +122,15 @@
 .bouton-connexion:hover .bottom-line {
     left: 0%;
 }
+
+@media screen and (max-width:425px) {
+    .navbar {
+        padding: 1.5rem 0.5rem;
+    }
+    .navbar-left__logo-csleague {
+        width: 2rem;
+    }
+    .navbar-right__logo-instagram {
+        width: 1.5rem;
+    }
+}

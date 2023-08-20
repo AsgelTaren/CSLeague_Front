@@ -100,3 +100,25 @@
     border: 3px solid var(--color-secondary);
     box-shadow: var(--primary-shadow);
 } */
+
+.contact-page__footer {
+    display: flex;
+    width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .contact-page-header {
+        width: 90%;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .contact-page-header {
+        width: 90%;
+        font-size: 1.25rem;
+    }
+    .contact-form {
+        width: 90%;
+    }
+}

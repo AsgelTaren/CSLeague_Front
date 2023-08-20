@@ -39,7 +39,7 @@
 
 .bet-image {
     display: flex;
-    width: 20%;
+    min-width: 20%;
     height: 100%;
 
     position: relative;
@@ -93,7 +93,7 @@
 
 .bet-title {
     color: var(--color-secondary);
-    text-align: left;
+    text-align: center;
     font-family: var(--font-family);
     font-size: 2rem;
     font-style: normal;
@@ -110,7 +110,7 @@
     gap: 1rem;
 
     color: var(--color-secondary);
-    text-align: left;
+    text-align: center;
     font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
@@ -137,9 +137,59 @@
     transform: scale(1.02);
 }
 
+@media screen and (max-width:768px) {
+    .bet-image__campaign-logo {
+        width: 4rem;
+        height: 4rem;
+    }
 
+    .mon-pari:hover {
+        transform: scale(1);
+    }
 
+    .mon-pari:hover .bet-image>img {
+        filter: blur(2px);
+    }
 
-/* .mon-pari-container {
-    border: 1px solid black;
-} */
+    .bet-image h1 {
+        font-size: 2rem;
+    }
+
+    .mon-pari:hover .bet-image h1 {
+        font-size: 2rem;
+    }
+
+    .bouton-annuler:hover {
+        transform: scale(1);
+    }
+
+    .bet-title {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .in-game h1 {
+        font-size: 1.5rem;
+    }
+
+    .in-game h2 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .bet-image {
+        display: none;
+    }
+    .mon-pari {
+        flex-direction: column;
+        /* justify-content: center; */
+        gap: 1rem;
+        height: auto;
+        padding: 1rem;
+    }
+    .bouton-annuler,
+    .bet-title {
+        margin: auto;
+    }
+}

@@ -53,10 +53,12 @@ const PrizePage = () => {
             <div className='betpage-header'>Profitez du WEI pour tenter de gagner des lots d’enfer !</div>
             <div className='betpage-partners'>
                 <div className='partner-left'>
-                    <Components.Logo size='8rem' />
+                    <div className="partner-left__csleague-logo">
+                        <Components.Logo size='100%' />
+                    </div>
                     <p>CS League</p>
                 </div>
-                <div className='partner-cross'><Components.CrossIcon /></div>
+                <div className='partner-cross'><Components.CrossIcon size='100%' /></div>
                 <div className='partner-right'>
                     <p>{campaign.partner_name}</p>
                     <img src={campaign.partner_icon} alt="partner-icon" />

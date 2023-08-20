@@ -38,6 +38,10 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
                         </div>
                         <p className="campaign-card-date">du 11 au 18 mai 2023</p>
                     </div>
+                    <div className='campaign-card-partners'>
+                        <div className='partner-logo'><Logo size="2rem" /></div>
+                        <div className='partner-logo'><img src={Assets.campaigns_partners_map.csfinance} alt="partner-logo" /></div>
+                    </div>
                 </div>
             </div>
         )

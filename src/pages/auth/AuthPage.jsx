@@ -17,12 +17,13 @@ const AuthPage = () => {
                 <p className="auth-page-title">Sélectionnez un mode de connexion</p>
 
                 <div className="auth-page-mode-container">
-
+                    <Components.ConnexionButton text='Connexion via Google' icon={Assets.google} link='LOL' />
                     <Components.ConnexionButton text='Connexion via Google' icon={Assets.google} link='LOL' />
                 </div>
             </div>
-
-            <Components.Footer />
+            <div className="auth-page-footer">
+                <Components.Footer />
+            </div>
         </div>
     )
 }

@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             <div className='footer-middle'>CS League est une association étudiante de CentraleSupélec qui a pour but d’intensifier la vie étudiante en proposant des paris sur les évènements majeurs du campus, puis d’offir des lots aux meilleurs parieurs.</div>
             <div className="footer-right__logo-instagram logo">
-                <Logo_Instagram size="2rem" className="footer__logo-instagram" />
+                <Logo_Instagram size="100%" className="footer__logo-instagram" />
             </div>
         </div>
     )

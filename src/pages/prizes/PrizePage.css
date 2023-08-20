@@ -49,6 +49,10 @@
     transition: all 0.1s ease-in-out;
 }
 
+.partner-left__csleague-logo {
+    height: 8rem;
+}
+
 .partner-left p {
     text-align: center;
     font-family: var(--font-family);
@@ -95,6 +99,10 @@
     transform: scale(1.05);
 }
 
+.partner-cross {
+    height: 3rem;
+}
+
 
 .betpage-prizes {
     display: flex;
@@ -136,6 +144,7 @@
 }
 
 .prize img {
+    height: 10rem;
     transition: all 0.1s ease-in-out;
 }
 
@@ -150,4 +159,119 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+@media screen and (max-width:1150px) {
+    .betpage-header {
+        font-size: 2.3rem;
+    }
+
+    .prizes-container {
+        gap: 2rem;
+    }
+
+    .prize img {
+        height: 8rem;
+    }
+
+    .prize p {
+        font-size: 1rem;
+    }
+
+    .partner-left:hover,
+    .partner-right:hover {
+        transform: scale(1);
+    }
+
+    .prize:hover img {
+        transform: scale(1);
+    }
+
+    .partner-left p,
+    .partner-right p {
+        font-size: 2.4rem;
+    }
+
+    .partner-left__csleague-logo,
+    .partner-right img {
+        height: 6rem;
+    }
+
+    .prizes-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .prizes-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .partner-left__csleague-logo,
+    .partner-right img {
+        height: 4rem;
+    }
+
+    .partner-left p,
+    .partner-right p {
+        font-size: 1.8rem;
+    }
+
+    .partner-cross {
+        height: 1.8rem;
+    }
+
+    .betpage-partners {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .betpage-container {
+        gap: 8rem;
+    }
+    .betpage-header {
+        max-width: 90%;
+        font-size: 2rem;
+    }
+    .betpage-partners {
+        gap: 0.5rem;
+    }
+    .partner-left,
+    .partner-right {
+        gap: 0.5rem;
+    }
+    .partner-left p,
+    .partner-right p {
+        font-size: 1.2rem;
+    }
+    .partner-left__csleague-logo,
+    .partner-right img {
+        height: 3rem;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .prize img {
+        height: 6rem;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .betpage-container {
+        gap: 6rem;
+    }
+    .partner-left,
+    .partner-right {
+        gap: 0.2rem;
+    }
+    .betpage-partners {
+        gap: 0.2rem;
+    }
+    .betpage-header {
+        font-size: 1.5rem;
+    }
 }

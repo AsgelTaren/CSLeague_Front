@@ -42,7 +42,7 @@
     max-height: 8rem; */
     position: relative;
     left: -1rem;
-    top: -1rem;
+    /* top: -1rem; */
     width: 4rem;
     height: 4rem;
     transition: all 0.3s ease-in-out;
@@ -126,7 +126,7 @@
     color: var(--color-secondary);
     background: var(--white);
     min-width: 10rem;
-    margin-right: -0.8rem;
+    margin-right: -0.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,11 +156,11 @@
 }
 
 .campaign-card:not(.selectedCard) .campaign-card-logo {
-    transform: translateY(4.5rem) translateX(1rem) rotate(360deg);
+    transform: translateY(3.5rem) translateX(1rem);
 }
 
 .campaign-card:not(.selectedCard):hover .campaign-card-logo {
-    transform: translateY(4.5rem) translateX(1rem) scale(1.05) rotate(360deg);
+    transform: translateY(3.5rem) translateX(1rem) scale(1.05);
 }
 
 .campaign-card.selectedCard {
@@ -168,9 +168,9 @@
     box-shadow: var(--secondary-shadow);
 }
 
-.campaign-card.selectedCard .campaign-card-logo {
-    transform: rotate(0deg);
-}
+/* .campaign-card.selectedCard .campaign-card-logo {
+    transform: rotate(360deg);
+} */
 
 .campaign-card.selectedCard:hover .campaign-card-logo {
     transform: scale(1.05);
@@ -223,14 +223,23 @@
     position: relative;
     left: -1.5rem;
     top: 1rem;
+
+    /* border: 1px solid black; */
 }
 
 .partner-logo {
+    display: none;
+    height: 2rem;
+    width: auto;
     transition: all 0.2s;
 }
 
 .campaign-card.selectedCard:hover .partner-logo {
     transform: scale(1.05);
+}
+
+.campaign-card.selectedCard .partner-logo {
+    display: flex;
 }
 
 /* .campaign-card-partners .logo-cs-league {
@@ -312,10 +321,29 @@
     }
 }
 
-@media screen and (max-width:755px) {
+@media screen and (max-width:800px) {
     .dots-container {
-        top: 77rem;
+        top: 64rem;
     }
 }
+
+@media screen and (max-width:770px) {
+    .dots-container {
+        top: 64rem;
+    }
+}
+
+@media screen and (max-width:630px) {
+    .dots-container {
+        top: 68rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .dots-container {
+        top: 60rem;
+    }
+}
+
 
 /* Pour les tailles petites d'écran on fera de toute façon un design différent. */

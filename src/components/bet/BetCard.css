@@ -74,7 +74,6 @@
 .bet-card:hover .bet-card-title {
     top: 0rem;
     font-size: 1.25rem;
-
 }
 
 .bet-card-separator {
@@ -146,4 +145,68 @@
 
 .bet-card:hover .bet-card-type>p {
     font-size: 0.8rem;
+}
+
+@media screen and (max-width:768px) {
+    .bet-card-content {
+        padding: 1rem 0.5rem;
+    }
+
+    .bet-card-title {
+        justify-content: center;
+        max-width: 90%;
+        width: 90%;
+        font-size: 1.5rem;
+    }
+
+    .bet-card-date {
+        font-size: 0.5rem;
+    }
+
+    /* Suppression de l'effet de hover */
+    .bet-card {
+        transform: scale(1.05);
+        transition: all 0.1s ease-in-out;
+    }
+
+    .bet-card .bet-card-content>img {
+        top: 0rem;
+        transform: rotate(360deg) scale(1.05);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .bet-card .bet-card-title {
+        top: 0rem;
+        font-size: 1.25rem;
+    }
+
+    .bet-card .bet-card-separator {
+        height: 4px;
+        width: 100%;
+    }
+
+    .bet-card .bet-card-date,
+    .bet-card:hover .bet-card-date {
+        font-size: 1rem;
+    }
+
+    .bet-card .bet-card-content {
+        box-shadow: var(--secondary-shadow);
+        transition: all 0.1s ease-in-out;
+    }
+
+    .bet-card .bet-card-type>img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .bet-card .bet-card-type>p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .bet-card {
+        width: 100%;
+    }
 }
