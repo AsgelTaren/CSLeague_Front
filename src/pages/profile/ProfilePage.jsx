@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProfilePage.css';
 import * as Components from '../../components';
+import axios from 'axios';
+import Cookies from "universal-cookie";
 
 const ProfilePage = () => {
+    const cookies = new Cookies()
+    const [points, setPoints] = useState()
+    useEffect(() => {
+        if (!cookies.get("user_token")) return;
+        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token }).then(data => data.data).then(data => {
+            console.log(data)
+            setPoints({ points: data.data.points_wei, rank: data.data.rank })
+        })
+
+    }, [])
     return (
         <div className='page-mes-paris'>
-
-            <div className='navbar-container'><Components.NavBar /></div>
 
             <div className='header-page-mes-paris'>
                 <div className='header-component'>
                     <p>Votre fortune s'élève à :</p>
-                    <h1 className='header-info'>150.490 BuCS</h1>
+                    <h1 className='header-info'>{points ? points.points : "Non acquis"}</h1>
                     <div></div>
                 </div>
                 <div className='header-component'>
                     <p>Votre classement est :</p>
-                    <h1 className='header-info'>4ème</h1>
+                    <h1 className='header-info'>{points ? getProperRank(points.rank) : "Non acquis"}</h1>
                     <div></div>
                 </div>
             </div>
@@ -42,4 +52,11 @@ const ProfilePage = () => {
     )
 }
 
-export { ProfilePage }
+const getProperRank = (rank) => {
+    if (rank == 1) {
+        return "1er"
+    }
+    return rank + "eme"
+}
+
+export {ProfilePage}

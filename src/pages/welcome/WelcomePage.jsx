@@ -13,9 +13,6 @@ const WelcomePage = () => {
         getAllCampaigns().then(campaigns => setCampaigns(campaigns))
     }, [])
     return (<div className="welcome-page">
-        <div className='navbar-container'>
-            <Components.NavBar />
-        </div>
         <div className="welcome-page-main">
             <div className='header'>
                 <h1>Bienvenue sur CS League !</h1>

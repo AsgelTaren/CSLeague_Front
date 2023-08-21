@@ -52,8 +52,7 @@ const NavigationButton = ({ text }) => {
 
 const ConnexionButton = ({ text, icon, link }) => {
     return (
-        <div className='connexion-button-container'>
-            {/* onClick={() => { window.location = getGoogleURL({ link }) }}> */}
+        <div className='connexion-button-container' onClick={() => window.location = link}>
             <img src={icon} alt="google" />
             <p>{text}</p>
         </div>

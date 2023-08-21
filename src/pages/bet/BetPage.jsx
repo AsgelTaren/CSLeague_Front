@@ -43,11 +43,6 @@ const BetPage = () => {
         let newLength = choices.push(toConcatenate);
     };
 
-    if (bet.order != null) {
-    }
-    const orderList = bet.order.split(",")
-    console.log(orderList)
-
     // console.log(choices);
     // console.log(choices[0]);
     // console.log(choices[0][0]);    
@@ -113,7 +108,7 @@ const BetPage = () => {
         {/* <Components.Number /> */}
 
         <div className="bet-page__order-container">
-            {orderList.map((item) => <Components.Order text={item} />)}
+            {/*orderList.map((item) => <Components.Order text={item} />) */}
         </div>
 
     </div>)

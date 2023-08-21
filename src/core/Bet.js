@@ -4,7 +4,7 @@ import { campaigns_icons_map, campaigns_images_map } from "../assets";
 import axios from "axios";
 
 class Bet {
-    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign, choice_name, choice_background, order) {
+    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign, choice_name, choice_background, orders) {
         this.id = id;
         this.name = name;
         this.bet_type = bet_type;
@@ -15,7 +15,7 @@ class Bet {
         this.campaign = campaign;
         this.choice_name = choice_name;
         this.choice_background = choice_background;
-        this.order = order
+        this.orders = orders
     }
 
     async getCampaign() {
@@ -35,7 +35,7 @@ const betFromJSON = (data) => {
         data.campaign,
         data.choice_name,
         data.choice_background,
-        data.order
+        data.orders
     )
 }
 
@@ -43,6 +43,7 @@ const getBet = async (id) => {
     return axios.get(process.env.REACT_APP_ENDPOINT + "/api/services/bets/getOne?id=" + id)
         .then(data => data.data)
         .then(data => {
+            console.log(data)
             if (data.status === "success") {
                 return betFromJSON(data.data)
             }

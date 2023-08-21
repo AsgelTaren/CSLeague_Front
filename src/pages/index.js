@@ -5,3 +5,4 @@ export * from './bet/BetPage';
 export * from './contact/ContactPage';
 export * from './prizes/PrizePage';
 export * from './profile/ProfilePage';
+export * from './logout/Logout';

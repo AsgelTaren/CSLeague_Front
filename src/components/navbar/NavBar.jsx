@@ -18,7 +18,7 @@ const NavBar = () => {
         const user_token = cookies.get("user_token");
         if (!user_token.access_token) return;
 
-        axios.post("http://localhost:8000/api/services/user/me", user_token).then(data => data.data).then(data => {
+        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/me", user_token).then(data => data.data).then(data => {
             if (data.status === "success") {
                 store.setUser(data.data);
             }
@@ -40,9 +40,11 @@ const NavBar = () => {
         </div>
 
         <div className="navbar-right">
-            <div className='connexion-button' onClick={() => { navigate('/oauth') }}>
-                <Components.NavigationButton text='Connexion' />
-            </div>
+            {store.user ? <UserPin user={store.user} /> :
+                <div className='connexion-button' onClick={() => { navigate('/oauth') }}>
+                    <Components.NavigationButton text='Connexion' />
+                </div>
+            }
             <div className="navbar-right__logo-instagram logo">
                 <Logo_Instagram size="100%" className="navbar__logo-instagram" />
             </div>

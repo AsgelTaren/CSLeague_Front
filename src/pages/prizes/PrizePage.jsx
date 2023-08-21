@@ -30,6 +30,10 @@ const PrizePage = () => {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }
 
+    if(!campaign.prize_name){
+        return (<div><p>Cette campagne n'a pas de prix!</p></div>)
+    }
+
     // A partir de la bdd, on construit le tableau contenant pour chaque prize son nom et son image
     // console.log(campaign.prize_name, campaign.prize_icon)
     const prizes_names = campaign.prize_name.split(",");

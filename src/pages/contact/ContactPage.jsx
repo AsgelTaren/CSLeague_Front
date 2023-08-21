@@ -14,9 +14,6 @@ const ContactPage = () => {
 
     return (
         <div className='contact-page-container'>
-            <div className='navbar-container'>
-                <Components.NavBar />
-            </div>
             <div className='contact-page-content'>
                 <h1 className='contact-page-header'>Si vous souhaitez nous contacter, n’hésitez pas à écrire votre message ci-dessous </h1>
 
