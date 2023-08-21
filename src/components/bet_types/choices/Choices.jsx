@@ -3,24 +3,19 @@ import './Choices.css';
 import * as Assets from '../../../assets';
 import * as Components from '../..';
 
-const Choices = ({ choice_data }) => {
-    const choiceName = choice_data[0];
-    const choiceBg = choice_data[1];
-
-    // console.log(choice_data);
-    // console.log(choiceName, choiceBg);
+const Choices = ({choice:{name,background}}) => {
     return (
         <div className='choice-container'>
 
             <div className="choice" onClick={() => { console.log('choiceClick') }}>
                 <div className='choice-title'>
-                    {choiceName}
+                    {name}
                 </div>
                 <div className='container-bouton-parier'>
                     <Components.ClassicButton text='Parier' />
                 </div>
                 <div className="choice-background">
-                    <img src={choiceBg} alt="choice-background" />
+                    <img src={background} alt="choice-background" />
                 </div>
             </div>
 

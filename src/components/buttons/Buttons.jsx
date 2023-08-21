@@ -18,7 +18,7 @@ const BoutonRetour = () => {
                             <line x1="45" y1="0.5" y2="0.5" stroke="#802626" />
                         </svg> */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="128" height="4" viewBox="0 0 36 4" fill="none">
-                            <path d="M0 2H36" stroke="#802626" stroke-width="6" />
+                            <path d="M0 2H36" stroke="#802626" strokeWidth="6" />
                         </svg>
                     </div>
                 </div>

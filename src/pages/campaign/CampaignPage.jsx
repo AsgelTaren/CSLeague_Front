@@ -23,8 +23,6 @@ const CampaignPage = () => {
 
     }, [searchParams])
 
-    console.log(campaign);
-
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }

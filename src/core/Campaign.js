@@ -46,7 +46,6 @@ const getCampaign = async (id) => {
         .then(data => data.data)
         .then(data => {
             if (data.status === "success") {
-                console.log(id)
                 return campaignFromJSON(data.data)
             }
         })

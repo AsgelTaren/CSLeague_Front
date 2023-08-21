@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import * as Components from '../../components';
 import * as Assets from '../../assets';
-import { getBet } from "../../core";
+import { getBet, getUserBet } from "../../core";
+import Cookies from "universal-cookie";
 
 import './BetPage.css';
 
@@ -12,8 +13,8 @@ const BetPage = () => {
     const [bet, setBet] = useState(null);
     const [campaign, setCampaign] = useState(null);
     const navigate = useNavigate();
-
-    // console.log(bet);
+    const [userBet, setUserBet] = useState(null);
+    const cookies = new Cookies()
 
     useEffect(() => {
         if (!searchParams.get("id")) return;
@@ -23,6 +24,8 @@ const BetPage = () => {
                 setCampaign(campaign)
             })
         })
+        if (!cookies.get("user_token")) return;
+        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => console.log(data))
 
     }, [searchParams])
 
@@ -36,16 +39,7 @@ const BetPage = () => {
     const choices_names = bet.choice_name.split(",");
     const choices_backgrounds = bet.choice_background.split(",");
 
-    let choices = [];
-    for (let pas = 0; pas < choices_backgrounds.length; pas++) {
-        let emptyList = [];
-        let toConcatenate = emptyList.concat(choices_names[pas], Assets.choices_backgrounds_map[choices_backgrounds[pas]]);
-        let newLength = choices.push(toConcatenate);
-    };
-
-    // console.log(choices);
-    // console.log(choices[0]);
-    // console.log(choices[0][0]);    
+    let choices = choices_names.map((value, index) => ({ name: value, background: Assets.choices_backgrounds_map[choices_backgrounds[index]] }))
 
     // Ceci permet d'obtenir les noms et les images des prizes :
     const prizes_names = campaign.prize_name.split(",");
@@ -92,8 +86,8 @@ const BetPage = () => {
                 </div>
                 <div className="campaign-prizes-right">
                     <p>A gagner :</p>
-                    {prize_data.map((prize, _) => (
-                        <img src={prize[1]} alt="prize-image" />
+                    {prize_data.map((prize, index) => (
+                        <img src={prize[1]} alt="prize-image" key={index} />
                     ))}
                 </div>
             </div>
@@ -102,7 +96,7 @@ const BetPage = () => {
         </div>
 
         <div className="choices-container">
-            {choices.map((choice, index) => <Components.Choices choice_data={choice} key={index} />)}
+            {choices.map((choice, index) => <Components.Choices choice={choice} key={index} />)}
         </div>
 
         {/* <Components.Number /> */}
