@@ -17,9 +17,6 @@ const AuthPage = () => {
                     <Components.ConnexionButton text='Connexion via Google' icon={Assets.google} link={getGoogleURL("LOL")} />
                 </div>
             </div>
-            <div className="auth-page-footer">
-                <Components.Footer />
-            </div>
         </div>
     )
 }

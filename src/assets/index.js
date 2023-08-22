@@ -32,3 +32,5 @@ export { default as plk } from './bet_choices/plk.png';
 export { default as sch } from './bet_choices/sch.png';
 export { default as johnny } from './bet_choices/johnny.png';
 export { default as eminem } from './bet_choices/eminem.png';
+
+export {default as logout} from './logout.png';

@@ -23,7 +23,6 @@ export const getUserBet = async (access_token, bet_id)=>{
     .then(data => data.data)
     .then(data => {
         if(data.status =="success" && data.data[0]){
-            console.log(data.data[0])
             return userBetFromJSON(data.data[0])
         }
     })

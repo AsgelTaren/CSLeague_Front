@@ -7,6 +7,53 @@ import Cookies from "universal-cookie";
 
 import './BetPage.css';
 
+const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
+    if (userBet) {
+        return (<p className="pari-pris">{userBet.choice}</p>)
+    }
+    const choices_names = bet.choice_name.split(",");
+    const choices_backgrounds = bet.choice_background.split(",");
+
+    let choices = choices_names.map((value, index) => ({ name: value, background: Assets.choices_backgrounds_map[choices_backgrounds[index]] }))
+    return (
+        <div className="choices-container">
+            {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
+                bet.placeBetForUser(cookies.get("user_token").access_token, choice.name).then(data => {
+                    console.log(data);
+                    navigate(0)
+                })
+            }} />)}
+        </div>)
+}
+
+const bet_type_constructors = { "multiple": MultipleChoiceBet }
+
+const ManageDate = ({ bet, userBet, cookies, navigate }) => {
+    const today = new Date(Date.now());
+    if (today < bet.date_begin) {
+        return (<p> Ce paris n'a pas encore commencé!</p>)
+    }
+    if (today > bet.date_end) {
+        return (<p> Ce paris est terminé!</p>)
+    }
+    if (!cookies.get("user_token")) {
+        return (<div>
+            <p>Vous devez vous connecter pour pouvoir parier</p>
+            <Components.ClassicButton text="Se connecter" onClick={() => navigate("/oauth")} />
+        </div>)
+    }
+    return (<div>
+        <h1 className="a-vos-marques">{userBet ? "Vous avez parié sur" : "A vos marques, prêts, pariez !"}</h1>
+        {bet_type_constructors[bet.bet_type](bet, userBet, cookies, navigate)}
+        {userBet ? <div className="bet-cancel">
+            <Components.ClassicButton text="Annuler" icon={<Components.SendIcon />} 
+            onClick={() => { 
+                bet.placeBetForUser(cookies.get("user_token").access_token, undefined);
+                navigate(0)
+                }} />
+        </div> : null}
+    </div>)
+}
 
 const BetPage = () => {
     const [searchParams] = useSearchParams();
@@ -25,8 +72,7 @@ const BetPage = () => {
             })
         })
         if (!cookies.get("user_token")) return;
-        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => console.log(data))
-
+        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => setUserBet(data))
     }, [searchParams])
 
     if (!bet || !campaign) {
@@ -34,25 +80,12 @@ const BetPage = () => {
             <p>Ce pari n'est pas valide</p>
         </div>)
     }
-
-    // Ceci permet d'obtenir les noms et les images correspondants aux choix du pari :
-    const choices_names = bet.choice_name.split(",");
-    const choices_backgrounds = bet.choice_background.split(",");
-
-    let choices = choices_names.map((value, index) => ({ name: value, background: Assets.choices_backgrounds_map[choices_backgrounds[index]] }))
-
+    console.log(userBet)
     // Ceci permet d'obtenir les noms et les images des prizes :
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");
 
-    let prize_data = [];
-    for (let i = 0; i < prizes_images.length; i++) {
-        let emptyList = [];
-        let toConcatenate = emptyList.concat(prizes_names[i], Assets.campaigns_prizes_map[prizes_images[i]]);
-        prize_data.push(toConcatenate);
-    }
-
-    // console.log(prize_data);
+    let prize_data = prizes_names.map((value, index) => ({ name: value, background: Assets.campaigns_prizes_map[prizes_images[index]] }));
 
     return (<div className="bet-page">
 
@@ -67,7 +100,7 @@ const BetPage = () => {
 
             <div className="bet-infos">
                 <div className="bet-infos-title">
-                    <img src={bet.icon} alt="icon" />
+                    <img src={bet.icon} alt="icon_bet" />
                     <p>{campaign.name + " : " + bet.name}</p>
                 </div>
             </div>
@@ -87,16 +120,11 @@ const BetPage = () => {
                 <div className="campaign-prizes-right">
                     <p>A gagner :</p>
                     {prize_data.map((prize, index) => (
-                        <img src={prize[1]} alt="prize-image" key={index} />
+                        <img src={prize.background} alt="prize-background" key={index} />
                     ))}
                 </div>
             </div>
-
-            <h1 className="a-vos-marques">A vos marques, prêts, pariez !</h1>
-        </div>
-
-        <div className="choices-container">
-            {choices.map((choice, index) => <Components.Choices choice={choice} key={index} />)}
+            <ManageDate bet={bet} userBet={userBet} cookies={cookies} navigate={navigate} />
         </div>
 
         {/* <Components.Number /> */}

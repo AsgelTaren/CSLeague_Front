@@ -3,11 +3,11 @@ import './Choices.css';
 import * as Assets from '../../../assets';
 import * as Components from '../..';
 
-const Choices = ({choice:{name,background}}) => {
+const Choices = ({ choice: { name, background }, onClick = () => { } }) => {
     return (
         <div className='choice-container'>
 
-            <div className="choice" onClick={() => { console.log('choiceClick') }}>
+            <div className="choice" onClick={onClick}>
                 <div className='choice-title'>
                     {name}
                 </div>

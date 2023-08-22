@@ -21,6 +21,10 @@ class Bet {
     async getCampaign() {
         return generalGetCampaign(this.campaign)
     }
+
+    async placeBetForUser(access_token, bet_choice) {
+        return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/placeBet", {access_token, bet_choice, bet_id: this.id })
+    }
 }
 
 const betFromJSON = (data) => {

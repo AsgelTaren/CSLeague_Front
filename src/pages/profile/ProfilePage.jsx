@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './ProfilePage.css';
-import { createUserDataStore, userBetFromJSON } from '../../core/';
+import { userBetFromJSON } from '../../core/';
 import * as Components from '../../components';
 import axios from 'axios';
 import Cookies from "universal-cookie";
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
+    const navigate = useNavigate()
     const cookies = new Cookies()
     const [points, setPoints] = useState()
     const [bets, setBets] = useState([])
@@ -39,15 +41,10 @@ const ProfilePage = () => {
                 <p>Vos paris :</p>
                 {bets.map(bet =>
                     <div className="single-bet">
-                        <Components.MyBet userBet={bet} />
+                        <Components.MyBet userBet={bet} cookies={cookies} navigate={navigate} />
                     </div>)}
             </div>
-
-            <div className='bouton-déconnexion'><Components.NavigationButton text='Déconnexion' /></div>
-
-            <Components.Footer />
-
-        </div>
+        </div >
     )
 }
 
@@ -58,4 +55,4 @@ const getProperRank = (rank) => {
     return rank + "eme"
 }
 
-export {ProfilePage}
+export { ProfilePage }

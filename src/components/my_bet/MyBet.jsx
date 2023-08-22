@@ -3,7 +3,7 @@ import './MyBet.css';
 import * as Assets from '../../assets';
 import * as Components from '../';
 
-const MyBet = ({userBet}) => {
+const MyBet = ({ userBet, cookies, navigate }) => {
     return (
         <div className='mon-pari'>
             {/* <div className='bet-image-container'>
@@ -20,8 +20,11 @@ const MyBet = ({userBet}) => {
                 <h2>Votre choix</h2>
                 <h1>{userBet.choice}</h1>
             </div>
-            <div className='bouton-annuler test'>
-                <Components.ClassicButton text='Annuler' />
+            <div className='bouton-annuler mon-pari-container'>
+                <Components.ClassicButton text='Annuler' onClick={() => {
+                    userBet.bet.placeBetForUser(cookies.get("user_token").access_token, undefined);
+                    navigate(0)
+                }} />
             </div>
         </div>
     )

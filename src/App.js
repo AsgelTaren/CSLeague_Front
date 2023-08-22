@@ -27,6 +27,7 @@ const App = () => {
                 <Route path="/prizes" element={<Pages.PrizePage />} />
                 <Route path='/profile' element={<Pages.ProfilePage />} />
             </Routes>
+            <Components.Footer />
         </BrowserRouter>
     </div>)
 

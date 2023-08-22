@@ -319,3 +319,18 @@
         margin-left: 1.5rem;
     }
 }
+
+.pari-pris {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.bet-cancel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

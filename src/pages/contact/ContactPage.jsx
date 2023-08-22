@@ -26,9 +26,6 @@ const ContactPage = () => {
                     <Components.ClassicButton text='Envoyer' icon={<Components.SendIcon />} />
                 </div>
             </div>
-            <div className='contact-page__footer'>
-                <Components.Footer />
-            </div>
         </div>
     )
 }

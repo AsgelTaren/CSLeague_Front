@@ -27,8 +27,6 @@ const WelcomePage = () => {
             <Components.CampaignCardList campaigns={campaigns} />
         </div>
 
-        <Components.Footer />
-
     </div>)
 };
 
