@@ -79,7 +79,7 @@ const BetPage = () => {
             </div>
 
             <div className="bet-desc">
-                <p>{bet.desc}</p>
+                <p>{campaign.desc}</p>
             </div>
 
             <div className="campaign-prizes">

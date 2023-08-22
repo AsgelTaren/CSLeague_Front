@@ -1,3 +1,7 @@
+.bet-page {
+    background-color: var(--white);
+}
+
 .campaign-image {
     height: 16rem;
     overflow: hidden;
@@ -44,6 +48,8 @@
 .bet-infos-title>img {
     /* max-width: 5rem;
     max-height: 5rem; */
+    position: relative;
+    top: -2rem;
     width: 3rem;
     height: 3rem;
 
@@ -135,34 +141,56 @@
 }
 
 .choices-container {
-    /* border: 1px solid black; */
-
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
 
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-
+    /* margin-top: 8rem;
+    margin-bottom: 8rem; */
     gap: 1rem;
+
+    padding: 8rem 0rem;
+}
+
+@media screen and (max-width:1024px) {
+    .choices-container {
+        gap: 0.5rem;
+    }
 }
 
 @media screen and (max-width:768px) {
-    .campaign-desc>p {
+    .bet-infos-title {
+        margin-left: 2rem;
+        top: 1.25rem;
+        gap: 0.5rem;
+
+    }
+
+    .bet-infos-title>p {
+        font-size: 1.75rem;
+    }
+
+    .bet-infos-title>img {
+        top: 0rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    .bet-desc>p {
         font-size: 1.25rem;
     }
 
     .campaign-prizes-left,
     .campaign-prizes-right {
         font-size: 1rem;
-        gap: 0rem;
+        gap: 0.2rem;
     }
 
     .campaign-prizes-left img,
     .campaign-prizes-right img,
     .bet-page__logo-csleague {
-        height: 3rem;
+        height: 2.25rem;
     }
 
     .campaign-prizes-left:hover,
@@ -171,7 +199,115 @@
     }
 
     .a-vos-marques {
-        font-size: 2rem;
+        font-size: 1.6rem;
         margin-top: 6rem;
+    }
+
+    .choices-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:580px) {
+
+    .campaign-prizes-left,
+    .campaign-prizes-right {
+        font-size: 0.8rem;
+        gap: 0.2rem;
+    }
+
+    .campaign-prizes-left img,
+    .campaign-prizes-right img,
+    .campaign-page__logo-csleague {
+        height: 2rem;
+    }
+
+    .campaign-prizes {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .bet-infos-title {
+        margin-left: 2rem;
+        top: 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .bet-infos-title>p {
+        font-size: 1.25rem;
+    }
+
+    .bet-infos-title>img {
+        top: 0rem;
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .campaign-prizes-left,
+    .campaign-prizes-right {
+        gap: 0.1rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .bet-infos-title {
+        margin-left: 1rem;
+        top: 1.75rem;
+        gap: 0.2rem;
+    }
+
+    .bet-infos-title>p {
+        font-size: 1rem;
+    }
+
+    .bet-infos-title>img {
+        top: 0rem;
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .bet-desc>p {
+        max-width: 90%;
+    }
+
+    .campaign-prizes-left,
+    .campaign-prizes-right {
+        font-size: 0rem;
+        gap: 0.2rem;
+    }
+
+    .campaign-infos-title {
+        top: 0.5rem;
+        margin-left: 3rem;
+        font-size: 2rem;
+        gap: 0.5rem;
+    }
+
+    .campaign-infos-title>img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .a-vos-marques {
+        font-size: 1.2rem;
+    }
+
+    .choices-container {
+        padding: 6rem 0rem;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .campaign-prizes {
+        padding: 1rem 0.5rem;
+    }
+
+    .campaign-infos-title {
+        margin-left: 1.5rem;
     }
 }

@@ -1,13 +1,12 @@
-.choices-container {
+.choice-container {
     /* border: 1px solid black; */
 
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 
-    margin-top: 8rem;
-    margin-bottom: 8rem;
+    /* margin-top: 8rem;
+    margin-bottom: 8rem; */
 
     gap: 1rem;
 }
@@ -109,4 +108,36 @@
 
 .choice:hover .choice-background {
     filter: blur(4px);
+}
+
+@media screen and (max-width:1024px) {
+    .choice-container {
+        gap: 0.5rem;
+        /* margin-top: 6rem;
+        margin-bottom: 6rem; */
+    }
+
+    .choice {
+        width: 12rem;
+        height: 6rem;
+    }
+
+    .choice-title {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .choice-container {
+        gap: 2rem;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .choice {
+        width: 16rem;
+        height: 8rem;
+    }
+    .choice-title {
+        font-size: 2.9rem;
+    }
 }

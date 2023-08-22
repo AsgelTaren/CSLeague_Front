@@ -3,16 +3,16 @@ import './Choices.css';
 import * as Assets from '../../assets';
 import * as Components from '../../components';
 
-const Choices = ({choice_data}) => {
+const Choices = ({ choice_data }) => {
     const choiceName = choice_data[0];
     const choiceBg = choice_data[1];
 
     // console.log(choice_data);
     // console.log(choiceName, choiceBg);
     return (
-        <div className='choices-container'>
+        <div className='choice-container'>
 
-            <div className="choice" onClick={()=>{console.log('choiceClick')}}>
+            <div className="choice" onClick={() => { console.log('choiceClick') }}>
                 <div className='choice-title'>
                     {choiceName}
                 </div>
