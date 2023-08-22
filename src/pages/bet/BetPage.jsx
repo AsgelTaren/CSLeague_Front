@@ -31,14 +31,17 @@ const bet_type_constructors = { "multiple": MultipleChoiceBet }
 const ManageDate = ({ bet, userBet, cookies, navigate }) => {
     const today = new Date(Date.now());
     if (today < bet.date_begin) {
-        return (<p> Ce paris n'a pas encore commencé!</p>)
+        return (<p className="pari-pris"> Ce paris n'a pas encore commencé!</p>)
     }
     if (today > bet.date_end) {
-        return (<p> Ce paris est terminé!</p>)
+        return (<div>
+            <p className="pari-pris"> Ce paris est clos!</p>
+            {bet.answer?<p className="pari-pris">La bonne réponse était {bet.answer}</p>:<p className="pari-pris">Les résultats ne sont pas encore disponibles!</p>}
+        </div>)
     }
     if (!cookies.get("user_token")) {
-        return (<div>
-            <p>Vous devez vous connecter pour pouvoir parier</p>
+        return (<div className="bet-connect">
+            <p>Vous devez vous connecter pour pouvoir parier!</p>
             <Components.ClassicButton text="Se connecter" onClick={() => navigate("/oauth")} />
         </div>)
     }
@@ -46,10 +49,10 @@ const ManageDate = ({ bet, userBet, cookies, navigate }) => {
         <h1 className="a-vos-marques">{userBet ? "Vous avez parié sur" : "A vos marques, prêts, pariez !"}</h1>
         {bet_type_constructors[bet.bet_type](bet, userBet, cookies, navigate)}
         {userBet ? <div className="bet-cancel">
-            <Components.ClassicButton text="Annuler" icon={<Components.SendIcon />} 
-            onClick={() => { 
-                bet.placeBetForUser(cookies.get("user_token").access_token, undefined);
-                navigate(0)
+            <Components.ClassicButton text="Annuler" icon={<Components.SendIcon />}
+                onClick={() => {
+                    bet.placeBetForUser(cookies.get("user_token").access_token, undefined);
+                    navigate(0)
                 }} />
         </div> : null}
     </div>)

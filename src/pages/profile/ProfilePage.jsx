@@ -14,7 +14,8 @@ const ProfilePage = () => {
     useEffect(() => {
         if (!cookies.get("user_token")) return;
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token }).then(data => data.data).then(data => {
-            setPoints({ points: data.data.points_wei, rank: data.data.rank })
+            setPoints({ points: data.data.points_won ?? 0, rank: data.data.rank })
+            console.log(data.data.points_won)
         })
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/ofToken", { access_token: cookies.get("user_token").access_token }).then(data => console.log(data.data))
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/ofUser", { access_token: cookies.get("user_token").access_token })
@@ -39,9 +40,9 @@ const ProfilePage = () => {
 
             <div className='container-mes-paris'>
                 <p>Vos paris :</p>
-                {bets.map(bet =>
+                {bets.map(userBet =>
                     <div className="single-bet">
-                        <Components.MyBet userBet={bet} cookies={cookies} navigate={navigate} />
+                        <Components.MyBet userBet={userBet} cookies={cookies} navigate={navigate} />
                     </div>)}
             </div>
         </div >
@@ -49,7 +50,10 @@ const ProfilePage = () => {
 }
 
 const getProperRank = (rank) => {
-    if (rank == 1) {
+    if (isNaN(parseFloat(rank)) || !isFinite(rank)) {
+        return rank;
+    }
+    if (rank === 1) {
         return "1er"
     }
     return rank + "eme"

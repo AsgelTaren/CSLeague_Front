@@ -24,6 +24,10 @@
     margin-bottom: -4.8rem;
 }
 
+.bet-page{
+    position:relative;
+}
+
 .bet-infos {
     display: flex;
     margin-top: -3.5rem;
@@ -147,6 +151,10 @@
 
     /* margin-top: 8rem;
     margin-bottom: 8rem; */
+    position:relative;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+
     gap: 1rem;
 
     padding: 8rem 0rem;
@@ -333,4 +341,15 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.bet-connect{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:4rem;
+    gap:3rem;
+    font-family: var(--font-family);
+    font-weight:700;
+    font-size:2rem;
 }

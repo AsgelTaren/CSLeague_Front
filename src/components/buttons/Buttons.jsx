@@ -28,9 +28,9 @@ const BoutonRetour = () => {
     )
 }
 
-const ClassicButton = ({ text, icon, onClick = () => { } }) => {
+const ClassicButton = ({ text, icon, onClick = () => { },style }) => {
     return (
-        <button className='button-classic' onClick={onClick}>
+        <button className='button-classic' onClick={onClick} style={style}>
             {text}
             {icon}
         </button>

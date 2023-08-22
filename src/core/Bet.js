@@ -4,7 +4,7 @@ import { campaigns_icons_map, campaigns_images_map } from "../assets";
 import axios from "axios";
 
 class Bet {
-    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign, choice_name, choice_background, orders) {
+    constructor(id, name, bet_type, date_begin, date_end, image, icon, campaign, choice_name, choice_background,gains,answer,orders) {
         this.id = id;
         this.name = name;
         this.bet_type = bet_type;
@@ -15,6 +15,8 @@ class Bet {
         this.campaign = campaign;
         this.choice_name = choice_name;
         this.choice_background = choice_background;
+        this.gains = gains;
+        this.answer = answer;
         this.orders = orders
     }
 
@@ -39,6 +41,8 @@ const betFromJSON = (data) => {
         data.campaign,
         data.choice_name,
         data.choice_background,
+        data.gains,
+        data.answer,
         data.orders
     )
 }
