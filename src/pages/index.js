@@ -4,4 +4,4 @@ export * from './campaign/CampaignPage';
 export * from './bet/BetPage';
 export * from './contact/ContactPage';
 export * from './prizes/PrizePage';
-export * from './mes_paris/PageMesParis';
+export * from './profile/ProfilePage';

@@ -33,8 +33,8 @@ const NavBar = () => {
                 <Logo size="100%" />
             </div>
             <div className='navbar-left__navigation-tabs'>
-                <div className='bouton-mes-paris-container' onClick={() => { navigate('/mes-paris') }}>
-                    <NavigationButton text="Mes Paris" />
+                <div className='bouton-mes-paris-container' onClick={() => { navigate('/profile') }}>
+                    <NavigationButton text="Mon Profil" />
                 </div>
             </div>
         </div>

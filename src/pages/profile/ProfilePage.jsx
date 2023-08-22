@@ -1,8 +1,8 @@
 import React from 'react';
-import './PageMesParis.css';
+import './ProfilePage.css';
 import * as Components from '../../components';
 
-const PageMesParis = () => {
+const ProfilePage = () => {
     return (
         <div className='page-mes-paris'>
 
@@ -34,12 +34,12 @@ const PageMesParis = () => {
                 </div>
             </div>
 
-            <div className='page-mes-paris__footer'>
-                <Components.Footer />
-            </div>
+            <div className='bouton-déconnexion'><Components.NavigationButton text='Déconnexion' /></div>
+
+            <Components.Footer />
 
         </div>
     )
 }
 
-export { PageMesParis }
+export { ProfilePage }
