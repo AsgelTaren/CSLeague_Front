@@ -11,12 +11,6 @@ const BoutonRetour = () => {
                     <div className='head'>
                         <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14 2L2.69146 13.8399C2.3097 14.2396 2.32459 14.8732 2.72471 15.2545L14 26" stroke="var(--color-secondary)" stroke-width="3" />
-                            {/* <defs>
-                                <linearGradient id="paint0_linear_131_3" x1="2" y1="14" x2="14" y2="14" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FF0000" />
-                                    <stop offset="1" stop-color="#802626" />
-                                </linearGradient>
-                            </defs> */}
                         </svg>
                     </div>
                     <div className='line'>

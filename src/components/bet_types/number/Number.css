@@ -1,0 +1,27 @@
+.number-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 8rem 0rem;
+    gap: 2rem;
+}
+
+.number-container>input {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 3px solid var(--color-secondary);
+
+    font-family: var(--font-family);
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.number-container input::placeholder {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    opacity: 0.5;
+}

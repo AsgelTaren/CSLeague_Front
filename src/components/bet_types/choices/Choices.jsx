@@ -1,7 +1,7 @@
 import React from 'react';
 import './Choices.css';
-import * as Assets from '../../assets';
-import * as Components from '../../components';
+import * as Assets from '../../../assets';
+import * as Components from '../..';
 
 const Choices = ({ choice_data }) => {
     const choiceName = choice_data[0];

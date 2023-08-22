@@ -5,5 +5,7 @@ export * from './buttons/Buttons';
 export * from './logo/Icons';
 export * from './bet/BetCard';
 export * from './footer/Footer';
-export * from './choices/Choices';
 export * from './my_bet/MyBet';
+export * from './bet_types/choices/Choices';
+export * from './bet_types/number/Number';
+export * from './bet_types/order/Order';
