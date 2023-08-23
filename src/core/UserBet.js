@@ -23,6 +23,7 @@ export const getUserBet = async (access_token, bet_id)=>{
     return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/singleOfUser",{access_token:access_token,bet_id:bet_id})
     .then(data => data.data)
     .then(data => {
+        console.log(data)
         if(data.status =="success" && data.data[0]){
             return userBetFromJSON(data.data[0])
         }

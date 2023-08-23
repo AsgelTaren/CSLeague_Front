@@ -5,7 +5,7 @@ import * as Components from '../';
 
 const MyBet = ({ userBet, cookies, navigate }) => {
     const today = new Date(Date.now())
-    console.log(userBet.bet.date_end + userBet.bet.name)
+    console.log(userBet)
     return (
         <div className='mon-pari'>
             {/* <div className='bet-image-container'>
@@ -26,9 +26,9 @@ const MyBet = ({ userBet, cookies, navigate }) => {
                 {userBet.bet.date_end > today ?
                     <Components.ClassicButton text='Annuler' onClick={() => {
                         userBet.bet.placeBetForUser(cookies.get("user_token").access_token, undefined).then(data => console.log(data))
-                       navigate(0)
-                    }} /> : null}
-                {userBet.points_won ? <p>{userBet.points_won}</p> : null}
+                        navigate(0)
+                    }} /> : (userBet.bet.answer ? <p>Résultat: {userBet.points_won} points</p> : <p>Résultats bientôt disponibles</p>)}
+
             </div>
 
         </div>

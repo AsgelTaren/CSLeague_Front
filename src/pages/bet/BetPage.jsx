@@ -19,7 +19,6 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
         <div className="choices-container">
             {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
                 bet.placeBetForUser(cookies.get("user_token").access_token, choice.name).then(data => {
-                    console.log(data);
                     navigate(0)
                 })
             }} />)}
@@ -83,7 +82,6 @@ const BetPage = () => {
             <p>Ce pari n'est pas valide</p>
         </div>)
     }
-    console.log(userBet)
     // Ceci permet d'obtenir les noms et les images des prizes :
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");

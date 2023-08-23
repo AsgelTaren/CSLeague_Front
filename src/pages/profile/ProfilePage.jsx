@@ -15,12 +15,11 @@ const ProfilePage = () => {
         if (!cookies.get("user_token")) return;
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token }).then(data => data.data).then(data => {
             setPoints({ points: data.data.points_won ?? 0, rank: data.data.rank })
-            console.log(data.data.points_won)
         })
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/ofToken", { access_token: cookies.get("user_token").access_token }).then(data => console.log(data.data))
         axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/ofUser", { access_token: cookies.get("user_token").access_token })
 
-            .then(data => data.data.data.map(bet => userBetFromJSON(bet))).then(data => setBets(data))
+            .then(data => { console.log(data); return data.data.data.map(bet => userBetFromJSON(bet)) }).then(data => setBets(data))
     }, [])
     return (
         <div className='page-mes-paris'>
@@ -40,9 +39,9 @@ const ProfilePage = () => {
 
             <div className='container-mes-paris'>
                 <p>Vos paris :</p>
-                {bets.map(userBet =>
+                {bets.map((userBet, index) =>
                     <div className="single-bet">
-                        <Components.MyBet userBet={userBet} cookies={cookies} navigate={navigate} />
+                        <Components.MyBet userBet={userBet} cookies={cookies} navigate={navigate} key={index} />
                     </div>)}
             </div>
         </div >
