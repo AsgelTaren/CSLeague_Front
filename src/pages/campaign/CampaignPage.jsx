@@ -23,9 +23,39 @@ const CampaignPage = () => {
 
     }, [searchParams])
 
+
+    var cardsPerRow = 4;
+    // En fonction de la largeur de l'écran on définit le nombre de BetCard maximal affichés par ligne.
+    if (window.screen.width > 1024) {
+        cardsPerRow = 4;
+    } else if (window.screen.width > 768) {
+        cardsPerRow = 3;
+    } else if (window.screen.width > 425) {
+        cardsPerRow = 2;
+    } else {
+        cardsPerRow = 1;
+    }
+
+    const betRow = [];
+    for (let i = 0; i < bets.length; i += cardsPerRow) {
+        betRow.push(bets.slice(i, i + cardsPerRow));
+    };
+
+
+    console.log(window.screen.width);
+
+
+
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }
+    
+    // Ceci permet d'obtenir les noms et les images des prizes :
+    const prizes_names = campaign.prize_name.split(",");
+    const prizes_images = campaign.prize_icon.split(",");
+
+    let prize_data = prizes_names.map((value, index) => ({ name: value, background: Assets.campaigns_prizes_map[prizes_images[index]] }));
+
 
     return (<div className="campaign-page">
 
@@ -55,13 +85,13 @@ const CampaignPage = () => {
                     <div className="campaign-page__logo-csleague">
                         <Components.Logo size="100%" />
                     </div>
-                    <img src={Assets.csfinance_logo} alt="logo-partner" />
+                    <img src={campaign.partner_icon} alt="logo-partner" />
                 </div>
                 <div className="campaign-prizes-right">
                     <p>A gagner :</p>
-                    <img src={Assets.airpods} alt="airpods" />
-                    <img src={Assets.macbookpro} alt="macbookpro" />
-                    <img src={Assets.jblcharge} alt="jbgcharge" />
+                    {prize_data.map((prize, index) => (
+                        <img src={prize.background} alt="prize-background" key={index} />
+                    ))}
                 </div>
             </div>
 
@@ -69,8 +99,15 @@ const CampaignPage = () => {
         </div>
 
         <div className="campaign-page-bets">
-            {bets.map((bet, index) => <Components.BetCard bet={bet} key={index} />)}
+            {betRow.map((row, rowIndex) => (
+                <div key={rowIndex} style={{ display: 'flex' }} className="campaign-page-bets-row">
+                    {row.map((bet, index) => (
+                        <Components.BetCard bet={bet} key={index} />
+                    ))}
+                </div>
+            ))}
         </div>
+
     </div>)
 }
 

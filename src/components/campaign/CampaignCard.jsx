@@ -39,7 +39,7 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
                         <p className="campaign-card-date">du 11 au 18 mai 2023</p>
                     </div>
                     <div className='campaign-card-partners'>
-                        <div className='partner-logo'><Logo size="2rem" /></div>
+                        <div className='partner-logo'><Logo size="100%" /></div>
                         <div className='partner-logo'><img src={Assets.campaigns_partners_map.csfinance} alt="partner-logo" /></div>
                     </div>
                 </div>
@@ -69,10 +69,8 @@ class CampaignCardList extends React.Component {
                 </div>
                 <div className='dots-container'>
                     {Array.from({ length: total }).map((_, index) => (
-                        <div className='dot-button' onClick={() => { setCurrent(index, total) }}>
-                            {/* <span className={currentItem === index ? 'dot active-dot' : 'dot'}></span> */}
-                            <span className='dot'></span>
-                        </div>
+                        <div className='dot-button' onClick={() => { setCurrent(index, total) }}></div>
+                        // <div className={currentItem === index ? 'dot-button active-dot' : 'dot-button'} onClick={() => { setCurrent(index, total) }}></div>
                     ))}
                 </div>
             </div>)
@@ -140,7 +138,9 @@ const setCurrent = (index, total) => {
     for (var i = 0; i < total; i++) {
         cards[i + 6].classList.remove("selectedCard")
     }
-    cards[6 + currentItem].classList.add("selectedCard")
+    cards[6 + currentItem].classList.add("selectedCard");
+
+    // console.log("index", index, "currectItem", currentItem);
 };
 
 export { CampaignCard, CampaignCardList, carouselMove }

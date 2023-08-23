@@ -1,4 +1,4 @@
-.footer-container {
+.footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,6 +8,8 @@
     padding: 1.5rem 2rem;
 
     margin-top: 16rem;
+
+    width: 100%;
 }
 
 .footer-middle {
@@ -39,7 +41,7 @@
         display: none;
     }
 
-    .footer-container {
+    .footer {
         margin-top: 12rem;
         width: 100%;
     }

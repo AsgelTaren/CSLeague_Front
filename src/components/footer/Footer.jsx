@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Footer = () => {
     let navigate = useNavigate()
     return (
-        <div className='footer-container'>
+        <div className='footer'>
             <div className='footer-left'>
                 <div className='navigation-button-container' onClick={() => navigate('/contact')}>
                     <NavigationButton text="Contact" link="/contact" />

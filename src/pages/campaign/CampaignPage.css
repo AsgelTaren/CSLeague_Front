@@ -136,16 +136,51 @@
 .campaign-page-bets {
     display: flex;
     align-items: center;
-    padding: 1rem 8rem;
+    padding: 1rem 2rem;
     gap: 2rem;
     margin-top: 8rem;
     margin-bottom: 8rem;
+    flex-direction: column;
 }
 
-@media screen and (max-width:768px) {
-    .campaign-desc>p {
-        font-size: 1.25rem;
+.campaign-page-bets-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.campaign-page-grid {
+    display: flex;
+
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1150px) {
+
+    .campaign-page-bets-row,
+    .campaign-page-bets {
+        gap: 1rem;
     }
+}
+
+@media screen and (max-width:925px) {
 
     .campaign-prizes-left,
     .campaign-prizes-right {
@@ -163,15 +198,17 @@
     .campaign-prizes-right:hover {
         transform: scale(1);
     }
+    
+}
+
+@media screen and (max-width:768px) {
+    .campaign-desc>p {
+        font-size: 1.25rem;
+    }
 
     .a-vos-marques {
         font-size: 1.6rem;
         margin-top: 6rem;
-    }
-
-    .campaign-page-bets {
-        padding: 1rem 4rem;
-        gap: 1rem;
     }
 }
 
@@ -205,11 +242,7 @@
 @media screen and (max-width:425px) {
     .campaign-desc>p {
         max-width: 90%;
-    }
-
-    .campaign-page-bets {
-        flex-direction: column;
-        gap: 3rem;
+        font-size: 1rem;
     }
 
     .campaign-prizes-left,

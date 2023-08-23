@@ -256,4 +256,8 @@
         width: 12px;
         height: 21px;
     }
+
+    .navigation-tabs>p {
+        font-size: 1rem;
+    }
 }

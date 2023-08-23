@@ -8,7 +8,8 @@ const ContactPage = () => {
         var message = document.getElementById('input-message').value.toString();
         var subject = document.getElementById('input-objet').value.toString();
 
-        const toSend = 'mailto:justinjuhel@gmail.com?subject=' + subject + '%0D%0AMessage :%0D%0A' + message.replace("\n", "%0D%0A")
+        console.log(message)
+        const toSend = 'mailto:justinjuhel@gmail.com?subject=' + subject + '&body=' + message.replace("\n", "%0D%0A")
         window.open(toSend); //?subject=subject&body=body
     }
 

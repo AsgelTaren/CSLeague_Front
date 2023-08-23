@@ -7,11 +7,11 @@ const Choices = ({ choice: { name, background }, onClick = () => { } }) => {
     return (
         <div className='choice-container'>
 
-            <div className="choice" onClick={onClick}>
+            <div className="choice">
                 <div className='choice-title'>
                     {name}
                 </div>
-                <div className='container-bouton-parier'>
+                <div className='container-bouton-parier' onClick={onClick}>
                     <Components.ClassicButton text='Parier' />
                 </div>
                 <div className="choice-background">

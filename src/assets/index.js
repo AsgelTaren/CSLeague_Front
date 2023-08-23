@@ -7,7 +7,7 @@ import * as BetChoicesBg from './bet_choices';
 export { default as next } from './next.png';
 export { default as previous } from './previous.png';
 export { default as google } from './google.png';
-const campaigns_icons_map = { toss: CampaignIcons.toss };
+const campaigns_icons_map = { toss: CampaignIcons.toss, wei: CampaignIcons.wei };
 const campaigns_images_map = { toss: CampaignImages.toss, wei: CampaignImages.wei };
 const campaigns_partners_map = { csfinance: CampaignPartners.csfinance };
 const campaigns_prizes_map = { airpods: CampaignPrizes.airpods, macbookpro: CampaignPrizes.macbookpro, jblcharge: CampaignPrizes.jblcharge };
@@ -33,4 +33,4 @@ export { default as sch } from './bet_choices/sch.png';
 export { default as johnny } from './bet_choices/johnny.png';
 export { default as eminem } from './bet_choices/eminem.png';
 
-export {default as logout} from './logout.png';
+export { default as logout } from './logout.png';

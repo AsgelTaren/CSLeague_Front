@@ -228,8 +228,8 @@
 }
 
 .partner-logo {
-    display: none;
-    height: 2rem;
+    display: flex;
+    height: 0rem;
     width: auto;
     transition: all 0.2s;
 }
@@ -239,7 +239,7 @@
 }
 
 .campaign-card.selectedCard .partner-logo {
-    display: flex;
+    height: 2rem;
 }
 
 /* .campaign-card-partners .logo-cs-league {
@@ -249,11 +249,6 @@
 /* .campaign-card-content {
     border: 1px solid black;
 } */
-
-.partner-logo img {
-    height: 2rem;
-    width: auto;
-}
 
 .dots-container {
     display: flex;
@@ -278,14 +273,8 @@
 .dot-button {
     display: flex;
     align-items: center;
-    min-height: 0.75rem;
     cursor: pointer;
 
-
-    /* border: 1px solid black; */
-}
-
-.dot {
     width: 4rem;
     height: 0.25rem;
     border-radius: 0.5rem;

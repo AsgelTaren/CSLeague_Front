@@ -10,4 +10,10 @@ body {
     white-space: normal;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: var(--white);
+}
+
+.footer-container,
+.navbar-container {
+    display: flex;
 }

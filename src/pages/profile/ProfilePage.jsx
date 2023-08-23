@@ -27,7 +27,7 @@ const ProfilePage = () => {
             <div className='header-page-mes-paris'>
                 <div className='header-component'>
                     <p>Votre fortune s'élève à :</p>
-                    <h1 className='header-info'>{points ? points.points : "Non acquis"}</h1>
+                    <h1 className='header-info'>{points ? points.points : "Non acquis"} BuCS</h1>
                     <div></div>
                 </div>
                 <div className='header-component'>

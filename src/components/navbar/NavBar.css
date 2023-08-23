@@ -63,13 +63,13 @@
 .userpin {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    background: rgb(156, 156, 156);
-    padding: 0.8rem;
+    gap: 1rem;
+    background: var(--black-25);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-radius: 4rem;
     font-size: 1.1rem;
     font-family: var(--font-family);
-    color: white
+    color: var(--white);
 }
 
 .userpin img {
@@ -123,6 +123,13 @@
     left: 0%;
 }
 
+@media screen and (max-width:768px) {
+    .userpin>img {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
 @media screen and (max-width:425px) {
     .navbar {
         padding: 1.5rem 0.5rem;
@@ -132,5 +139,10 @@
     }
     .navbar-right__logo-instagram {
         width: 1.5rem;
+    }
+    .userpin {
+        gap: 0.5rem;
+        padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+        font-size: 0.8rem;
     }
 }

@@ -27,7 +27,7 @@ const App = () => {
                 <Route path="/prizes" element={<Pages.PrizePage />} />
                 <Route path='/profile' element={<Pages.ProfilePage />} />
             </Routes>
-            <Components.Footer />
+            <div className='footer-container'><Components.Footer /></div>
         </BrowserRouter>
     </div>)
 
