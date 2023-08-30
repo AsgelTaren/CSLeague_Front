@@ -1,1 +1,1 @@
-export { default as csfinance } from './csfinance.png';
+export { default as csfinance } from './csfinance.jpg';

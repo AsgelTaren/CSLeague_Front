@@ -31,6 +31,10 @@
     transition: all 0.2s;
 }
 
+.button-classic:hover {
+    transform: scale(1.025);
+}
+
 .button-classic:hover svg {
     width: 2.9rem;
 }

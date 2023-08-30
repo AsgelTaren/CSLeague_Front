@@ -49,7 +49,7 @@ const CampaignPage = () => {
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }
-    
+
     // Ceci permet d'obtenir les noms et les images des prizes :
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");

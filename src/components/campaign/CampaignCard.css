@@ -232,6 +232,9 @@
     height: 0rem;
     width: auto;
     transition: all 0.2s;
+
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .campaign-card.selectedCard:hover .partner-logo {
@@ -284,8 +287,8 @@
     /* border: 1px solid black; */
 }
 
-.dot-button:hover .dot {
-    transform: scale(1.1);
+.dot-button:hover {
+    transform: scale(1.05);
     /* height: 0.5rem; */
 }
 
