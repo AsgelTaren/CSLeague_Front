@@ -13,8 +13,8 @@ const campaigns_partners_map = { csfinance: CampaignPartners.csfinance };
 const campaigns_prizes_map = { airpods: CampaignPrizes.airpods, macbookpro: CampaignPrizes.macbookpro, jblcharge: CampaignPrizes.jblcharge };
 export { campaigns_icons_map, campaigns_images_map, campaigns_partners_map, campaigns_prizes_map, CampaignIcons, CampaignImages };
 
-const bet_types = { multiple: "Choix multiples", location: "Position sur une carte" }
-const bet_types_icons = { multiple: BetTypesIcons.multiple, location: BetTypesIcons.location }
+const bet_types = { multiple: "Choix multiples", location: "Position sur une carte", number: "Estimation d'un nombre" }
+const bet_types_icons = { multiple: BetTypesIcons.multiple, location: BetTypesIcons.location, number: BetTypesIcons.number }
 export { bet_types, bet_types_icons };
 export { default as csfinance_logo } from './csfinance_logo.png';
 export { default as airpods } from './airpods.png';
