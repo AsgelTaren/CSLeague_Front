@@ -9,7 +9,7 @@ import './BetPage.css';
 
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
-  }
+}
 
 const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     if (userBet) {
@@ -22,7 +22,7 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     return (
         <div className="choices-container">
             {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
-                bet.placeBetForUser(cookies.get("user_token").access_token, choice.name).then(data => {
+                bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, choice.name).then(data => {
                     navigate(0)
                 })
             }} />)}
@@ -37,10 +37,11 @@ const NumberBet = (bet, userBet, cookies, navigate) => {
     return (<div className="number-container">
         <input type="number" id="choice-number" />
         <Components.ClassicButton text="Parier" icon={<Components.BetIcon />} onClick={(event) => {
-            if (!!document.getElementById("choice-number").value && isNumeric(document.getElementById("choice-number").value))
-                bet.placeBetForUser(cookies.get("user_token").access_token, document.getElementById("choice-number").value).then(data => {
+            if (!!document.getElementById("choice-number").value && isNumeric(document.getElementById("choice-number").value)) {
+                bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, document.getElementById("choice-number").value).then(data => {
                     navigate(0)
                 })
+            }
         }} />
     </div>)
 
@@ -74,7 +75,7 @@ const ManageDate = ({ bet, userBet, cookies, navigate }) => {
         {userBet ? <div className="bet-cancel">
             <Components.ClassicButton text="Annuler"
                 onClick={() => {
-                    bet.placeBetForUser(cookies.get("user_token").access_token, undefined);
+                    bet.placeBetForUser(cookies.get("user_token").access_token,cookies.get("user_token").provider, undefined);
                     navigate(0)
                 }} />
         </div> : null}
@@ -98,7 +99,7 @@ const BetPage = () => {
             })
         })
         if (!cookies.get("user_token")) return;
-        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => setUserBet(data))
+        getUserBet(cookies.get("user_token").access_token, cookies.get("user_token").provider,searchParams.get("id")).then(data => setUserBet(data))
     }, [searchParams])
 
     if (!bet || !campaign) {

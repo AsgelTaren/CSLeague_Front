@@ -7,6 +7,7 @@ import * as BetChoicesBg from './bet_choices';
 export { default as next } from './next.png';
 export { default as previous } from './previous.png';
 export { default as google } from './google.png';
+export {default as viarezo} from './viarezo.png';
 const campaigns_icons_map = { toss: CampaignIcons.toss, wei: CampaignIcons.wei };
 const campaigns_images_map = { toss: CampaignImages.toss, wei: CampaignImages.wei };
 const campaigns_partners_map = { csfinance: CampaignPartners.csfinance };

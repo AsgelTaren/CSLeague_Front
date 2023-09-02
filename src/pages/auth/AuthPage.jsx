@@ -2,6 +2,7 @@ import React from "react";
 
 import * as Assets from '../../assets';
 import getGoogleURL from '../../utils/getGoogleURL';
+import getViaRezoURL from '../../utils/getViaRezoURL';
 import './AuthPage.css'
 import * as Components from '../../components';
 
@@ -15,6 +16,7 @@ const AuthPage = () => {
 
                 <div className="auth-page-mode-container">
                     <Components.ConnexionButton text='Connexion via Google' icon={Assets.google} link={getGoogleURL("LOL")} />
+                    <Components.ConnexionButton text='Connexion via ViaRezo' icon={Assets.viarezo} link={getViaRezoURL("LOL")} />
                 </div>
             </div>
         </div>

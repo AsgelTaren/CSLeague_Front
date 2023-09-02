@@ -23,7 +23,7 @@ const MyBet = ({ userBet, cookies, navigate }) => {
             <div className='bouton-annuler' >
                 {userBet.bet.date_end > today ?
                     <Components.ClassicButton text='Annuler' onClick={() => {
-                        userBet.bet.placeBetForUser(cookies.get("user_token").access_token, undefined).then(data => console.log(data))
+                        userBet.bet.placeBetForUser(cookies.get("user_token").access_token,cookies.get("user_token").provider, undefined).then(data => console.log(data))
                         navigate(0)
                     }} /> : (userBet.bet.answer ? <p>Résultat: {Math.round(userBet.points_won * 100)/100} points</p> : <p>Résultats bientôt disponibles</p>)}
 

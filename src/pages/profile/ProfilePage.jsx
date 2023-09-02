@@ -13,11 +13,11 @@ const ProfilePage = () => {
     const [bets, setBets] = useState([])
     useEffect(() => {
         if (!cookies.get("user_token")) return;
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token }).then(data => data.data).then(data => {
+        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider }).then(data => data.data).then(data => {
             setPoints({ points: data.data.points_won ?? 0, rank: data.data.rank })
         })
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/ofToken", { access_token: cookies.get("user_token").access_token }).then(data => console.log(data.data))
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/ofUser", { access_token: cookies.get("user_token").access_token })
+        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/ofToken", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider }).then(data => console.log(data.data))
+        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/ofUser", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider })
 
             .then(data => { console.log(data); return data.data.data.map(bet => userBetFromJSON(bet)) }).then(data => setBets(data))
     }, [])

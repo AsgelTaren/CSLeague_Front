@@ -18,7 +18,7 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
         const selectedCardParent = clickedDiv.closest('.selectedCard');
         const index2 = index - 6;
         if (selectedCardParent) {
-            navigate('/prizes?id=' + index2);
+            navigate('/prizes?id=' + campaign.id);
         } else {
             setCurrent(index - 6, total);
         }

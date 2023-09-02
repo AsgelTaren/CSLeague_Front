@@ -19,8 +19,8 @@ export const userBetFromJSON = (data) => {
     return new UserBet(betFromJSON(data), data.choice,data.campaign_name,data.points_won);
 }
 
-export const getUserBet = async (access_token, bet_id)=>{
-    return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/singleOfUser",{access_token:access_token,bet_id:bet_id})
+export const getUserBet = async (access_token,provider, bet_id)=>{
+    return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/singleOfUser",{access_token:access_token,bet_id:bet_id,provider})
     .then(data => data.data)
     .then(data => {
         console.log(data)
