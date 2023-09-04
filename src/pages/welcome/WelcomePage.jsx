@@ -16,7 +16,7 @@ const WelcomePage = () => {
         <div className="welcome-page-main">
             <div className='header'>
                 <h1>Bienvenue sur CS League !</h1>
-                <p>Parie gratuitement dès maintenant sur les évènements les plus chauds de CS et deviens une légende en gagnant des lots incroyables !</p>
+                <p>Parie gratuitement sur les évènements les plus chauds de CS et deviens une légende. Tente de gagner des lots incroyables !</p>
             </div>
         </div>
 

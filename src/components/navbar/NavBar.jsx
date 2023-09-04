@@ -45,7 +45,7 @@ const NavBar = () => {
                     <Components.NavigationButton text='Connexion' />
                 </div>
             }
-            <div className="navbar-right__logo-instagram logo">
+            <div className="navbar-right__logo-instagram logo" onClick={() => { window.open("https://www.instagram.com/centralesupelec_league/") }}>
                 <Logo_Instagram size="100%" className="navbar__logo-instagram" />
             </div>
         </div>

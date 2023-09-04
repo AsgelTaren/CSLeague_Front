@@ -133,6 +133,8 @@
     border-radius: 0.3rem;
     transition: all 0.2s ease-in-out;
     box-shadow: 2px 2px 2px rgba(236, 104, 104, 0.354);
+
+    /* border: 1px solid black; */
 }
 
 .campaign-card:hover .campaign-card-name {
@@ -146,14 +148,34 @@
 
 .campaign-card-name>p {
     transform: skew(-14deg, 0);
+
+    /* border: 1px solid black; */
 }
 
-.campaign-card:not(.selectedCard) .campaign-card-infos {
+/* .campaign-card:not(.selectedCard) .campaign-card-infos {
     opacity: 0;
-    /* transform: scale(0); */
+    transform-origin: center right;
+    transition: all 0.2s ease-in-out;
+} */
+
+.campaign-card:not(.selectedCard) .campaign-card-date {
+    opacity: 0;
     transform-origin: center right;
     transition: all 0.2s ease-in-out;
 }
+
+.campaign-card:not(.selectedCard) .campaign-card-name {
+    transform: skew(+14deg, 0) translateX(-1.4rem) translateY(2rem);
+    background-color: transparent;
+    color: var(--white);
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+.campaign-card:not(.selectedCard):hover .campaign-card-name {
+    min-width: 10rem;
+    transform: skew(+14deg, 0) translateX(-1.4rem) translateY(2rem) scale(1.05);
+}
+
 
 .campaign-card:not(.selectedCard) .campaign-card-logo {
     transform: translateY(3.5rem) translateX(1rem);
@@ -176,7 +198,7 @@
     transform: scale(1.05);
 }
 
-.campaign-card-list-button {
+/* .campaign-card-list-button {
     position: absolute;
     top: 42rem;
 
@@ -184,26 +206,26 @@
     transition: all 0.2s ease-in-out;
 
     display: none;
-}
+} */
 
-.next {
+/* .next {
     right: 4rem;
-}
+} */
 
-.previous {
+/* .previous {
     left: 4rem;
-}
+} */
 
-.campaign-card-list-button>img {
+/* .campaign-card-list-button>img {
     max-width: 4rem;
     max-height: 4rem;
-}
+} */
 
-.campaign-card-list-button:hover {
+/* .campaign-card-list-button:hover {
     transform: scale(1.2);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-}
+} */
 
 .campaign-card-date {
     color: var(--white);

@@ -19,7 +19,7 @@ const BetCard = ({ bet }) => {
             <div className="bet-card-separator"></div>
             <p className="bet-card-date">Du {moment(bet.date_begin).format("DD/MM/YYYY - hh:mm")}</p>
             <p className="bet-card-date">Au {moment(bet.date_end).format("DD/MM/YYYY - hh:mm")}</p>
-            <p className="bet-card-date">{bet.gains + " points"}</p>
+            <p className="bet-card-date">{bet.gains + " BuCS"}</p>
             <div className="bet-card-type">
                 <img src={bet_types_icons[bet.bet_type]} alt="bet-type" />
                 <p>{bet_types[bet.bet_type]}</p>

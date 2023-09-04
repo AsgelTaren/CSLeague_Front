@@ -82,6 +82,19 @@ const ManageDate = ({ bet, userBet, cookies, navigate }) => {
     </div>)
 }
 
+const GainPotentiel = ({ bet_type, gains }) => {
+
+    if (bet_type === "multiple") {
+        return (<div className="betpage-gain-potentiel">
+            {"Gains potentiels pour ce pari : " + gains + " BuCS"}
+        </div>)
+    } else if (bet_type === "number") {
+        return (<div className="betpage-gain-potentiel">
+            {"Gains maximaux pour ce pari : " + gains + " BuCS"}
+        </div>)
+    }
+}
+
 const BetPage = () => {
     const [searchParams] = useSearchParams();
     const [bet, setBet] = useState(null);
@@ -151,6 +164,9 @@ const BetPage = () => {
                     ))}
                 </div>
             </div>
+
+            <GainPotentiel bet_type={bet.bet_type} gains={bet.gains} />
+
             <ManageDate bet={bet} userBet={userBet} cookies={cookies} navigate={navigate} />
         </div>
 

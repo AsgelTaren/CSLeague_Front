@@ -58,12 +58,12 @@ class CampaignCardList extends React.Component {
         campaigns = [null, null, null, null, null, null, ...campaigns, null, null, null, null];
         return (
             <div id="campaign-card-list">
-                <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}>
+                {/* <div className="campaign-card-list-button previous" onClick={() => carouselMove("previous", total)}>
                     <img src={Assets.previous} alt="previous" />
                 </div>
                 <div className="campaign-card-list-button next" onClick={() => carouselMove("next", total)}>
                     <img src={Assets.next} alt="next" />
-                </div>
+                </div> */}
                 <div id="campaign-card-list-inner">
                     {campaigns.map((campaign, index) => <CampaignCard campaign={campaign} key={index} id={"campaign-card-" + index} index={index} total={total} />)}
                 </div>

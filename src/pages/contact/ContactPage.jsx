@@ -9,7 +9,7 @@ const ContactPage = () => {
         var subject = document.getElementById('input-objet').value.toString();
 
         console.log(message)
-        const toSend = 'mailto:justinjuhel@gmail.com?subject=' + subject + '&body=' + message.replace("\n", "%0D%0A")
+        const toSend = 'mailto:csleague.contact@gmail.com?subject=' + subject + '&body=' + message.replaceAll("\n", "%0D%0A") // très important d'utiliser replaceAll et non replace, sinon un seul retour à la ligne est pris en compte.
         window.open(toSend); //?subject=subject&body=body
     }
 
