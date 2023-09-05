@@ -1,8 +1,6 @@
 import React from 'react';
-import { Campaign } from '../../core';
-import { Logo } from '../../components';
 import { useNavigate } from 'react-router-dom';
-import {getImageURL} from '../../utils/getImageURL';
+import { getImageURL } from '../../utils/getImageURL';
 import * as Assets from '../../assets';
 
 
@@ -15,14 +13,14 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
     const customClick = (index, total, myEvent) => {
         var clickedDiv = myEvent.target;
         const selectedCardParent = clickedDiv.closest('.selectedCard');
-        const index2 = index - 6;
         if (selectedCardParent) {
             navigate('/prizes?id=' + campaign.id);
         } else {
             setCurrent(index - 6, total);
         }
     };
-    if (campaign)
+    console.log(campaign)
+    if (campaign) {
         return (
             <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id} onClick={(myEvent) => { customClick(index, total, myEvent) }}>
                 <div className='campaign-card-background'>
@@ -34,7 +32,8 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
                         <div className='campaign-card-name'>
                             <p>{campaign.name}</p>
                         </div>
-                        <p className="campaign-card-date">du 11 au 18 mai 2023</p>
+                        <p className="campaign-card-date">du {campaign.date_begin}</p>
+                        <p className="campaign-card-date">au {campaign.date_end}</p>
                     </div>
                     {/* <div className='campaign-card-partners'>
                         <div className='partner-logo'><Logo size="100%" /></div>
@@ -43,6 +42,7 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
                 </div>
             </div>
         )
+    }
     return (
         <div className="campaign-card" style={{ background: "rgb(180,180,180)" }}></div>
     )
@@ -88,7 +88,6 @@ var currentItem = 0;
 const carouselMove = (dir, total) => {
     let pos = []
     var cards = Array.from(document.querySelectorAll("#campaign-card-list-inner > div"))
-    let inner = document.getElementById("campaign-card-list-inner")
     cards.forEach(value => pos.push(value.offsetLeft))
     if (dir === "next") {
         currentItem++;

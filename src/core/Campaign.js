@@ -1,20 +1,20 @@
 import axios from "axios";
-import { campaigns_icons_map, campaigns_images_map, campaigns_partners_map as campaigns_partner_icon_map, campaigns_prizes_map } from "../assets";
-import { betFromJSON } from './Bet';
 
 class Campaign {
 
-    constructor(id, name, image, icon, description) {
+    constructor(id, name, image, icon, description, date_begin, date_end) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.icon = icon;
         this.description = description;
+        this.date_begin = date_begin;
+        this.date_end = date_end;
     }
 }
 
 const campaignOfJSON = (data) => {
-    return new Campaign(data.id, data.name, data.image, data.icon, data.description)
+    return new Campaign(data.id, data.name, data.image, data.icon, data.description, data.date_begin, data.date_end)
 }
 
 
@@ -28,7 +28,6 @@ const getAllCampaigns = async () => {
 
 const getUniqueCampaign = async (id) => {
     return axios.get(process.env.REACT_APP_ENDPOINT + `/campaigns/unique?campaign=${id}`).then(data => data.data).then(data => {
-        console.log(data)
         if (data.status === "success") {
             return data.data;
         }
@@ -36,4 +35,14 @@ const getUniqueCampaign = async (id) => {
     })
 }
 
-export { Campaign, getAllCampaigns,getUniqueCampaign }
+const getBetsOfCampaign = async (id) => {
+    return axios.get(process.env.REACT_APP_ENDPOINT + `/bets/ofCampaign?campaign=${id}`).then(data => data.data).then(data => {
+        console.log(data.data)
+        if (data.status === "success") {
+            return data.data;
+        }
+        return undefined;
+    })
+}
+
+export { Campaign, getAllCampaigns, getUniqueCampaign, getBetsOfCampaign }

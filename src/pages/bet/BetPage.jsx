@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import * as Components from '../../components';
-import { getBet, getUserBet } from "../../core";
+import { getImageURL } from "../../utils/getImageURL";
+import { getUniqueBet, getUniqueCampaign, getUserBet } from "../../core";
 import Cookies from "universal-cookie";
+import moment from "moment";
 
 import './BetPage.css';
 
@@ -14,10 +16,11 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     if (userBet) {
         return (<p className="pari-pris">{userBet.choice}</p>)
     }
-    const choices_names = bet.choice_name.split(",");
-    const choices_backgrounds = bet.choice_background.split(",");
+    console.log(bet)
+    const choices_names = bet.choice_names.split(",");
+    const choices_images = bet.choice_images.split(",");
 
-    let choices = choices_names.map((value, index) => ({ name: value, background: "test" }))
+    let choices = choices_names.map((value, index) => ({ name: value, image: choices_images[index] }))
     return (
         <div className="choices-container">
             {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
@@ -51,10 +54,12 @@ const bet_type_constructors = { "multiple": MultipleChoiceBet, "number": NumberB
 
 const ManageDate = ({ bet, userBet, cookies, navigate }) => {
     const today = new Date(Date.now());
-    if (today < bet.date_begin) {
+    const date_begin = moment(bet.date_begin, 'YYYY-MM-DD HH:mm:ss').toDate()
+    const date_end = moment(bet.date_end, 'YYYY-MM-DD HH:mm:ss').toDate()
+    if (today < date_begin) {
         return (<p className="pari-pris">Ce pari n'a pas encore commencé !</p>)
     }
-    if (today > bet.date_end) {
+    if (today > date_end) {
         return (<div>
             <p className="pari-pris"> Ce pari est clos !</p>
             {bet.answer ? <p className="pari-pris">La bonne réponse était {bet.answer}.</p> : <p className="pari-pris">Les résultats ne sont pas encore disponibles !</p>}
@@ -74,7 +79,7 @@ const ManageDate = ({ bet, userBet, cookies, navigate }) => {
         {userBet ? <div className="bet-cancel">
             <Components.ClassicButton text="Annuler"
                 onClick={() => {
-                    bet.placeBetForUser(cookies.get("user_token").access_token,cookies.get("user_token").provider, undefined);
+                    bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, undefined);
                     navigate(0)
                 }} />
         </div> : null}
@@ -91,14 +96,12 @@ const BetPage = () => {
 
     useEffect(() => {
         if (!searchParams.get("id")) return;
-        getBet(searchParams.get("id")).then(bet => {
+        getUniqueBet(searchParams.get("id")).then(bet => {
             setBet(bet);
-            bet.getCampaign().then(campaign => {
-                setCampaign(campaign)
-            })
+            getUniqueCampaign(bet.id).then(campaign => setCampaign(campaign))
         })
         if (!cookies.get("user_token")) return;
-        getUserBet(cookies.get("user_token").access_token, cookies.get("user_token").provider,searchParams.get("id")).then(data => setUserBet(data))
+        // getUserBet(cookies.get("user_token").access_token, cookies.get("user_token").provider, searchParams.get("id")).then(data => setUserBet(data))
     }, [searchParams])
 
     if (!bet || !campaign) {
@@ -107,12 +110,6 @@ const BetPage = () => {
         </div>)
     }
 
-    // Ceci permet d'obtenir les noms et les images des prizes :
-    const prizes_names = campaign.prize_name.split(",");
-    const prizes_images = campaign.prize_icon.split(",");
-
-    let prize_data = prizes_names.map((value, index) => ({ name: value, background: "test" }));
-
     return (<div className="bet-page">
 
         <div className="bet-page-bouton-retour" onClick={() => { navigate('/campaign?id=' + campaign.id) }}>
@@ -120,13 +117,13 @@ const BetPage = () => {
         </div>
 
         <div className="campaign-image">
-            <img src={bet.image} alt="campaign_image" />
+            <img src={getImageURL(bet.image)} alt="campaign_image" />
         </div>
         <div className="bet-infos-container">
 
             <div className="bet-infos">
                 <div className="bet-infos-title">
-                    <img src={bet.icon} alt="icon_bet" />
+                    <img src={getImageURL(campaign.icon)} alt="icon_bet" />
                     <p>{campaign.name + " : " + bet.name}</p>
                 </div>
             </div>
@@ -138,15 +135,15 @@ const BetPage = () => {
             <div className="campaign-prizes">
                 <div className="campaign-prizes-left">
                     <p>Organisé par :</p>
-                    <div className="bet-page__logo-csleague">
-                        <Components.Logo size="100%" />
-                    </div>
-                    <img src={campaign.partner_icon} alt="logo-partner" />
+                    {campaign.partners.map((partner, index) =>
+                        <img src={getImageURL(partner.icon)} alt="logo-partner" key={index} />
+                    )}
+
                 </div>
                 <div className="campaign-prizes-right">
                     <p>A gagner :</p>
-                    {prize_data.map((prize, index) => (
-                        <img src={prize.background} alt="prize-background" key={index} />
+                    {campaign.prizes.map((prize, index) => (
+                        <img src={getImageURL(prize.image)} alt="prize-background" key={index} />
                     ))}
                 </div>
             </div>

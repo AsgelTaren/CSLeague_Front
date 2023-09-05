@@ -18,7 +18,7 @@ const NavBar = () => {
         const user_token = cookies.get("user_token");
         if (!user_token.access_token) return;
 
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/me", user_token).then(data => data.data).then(data => {
+        axios.post(process.env.REACT_APP_ENDPOINT + "/oauth/me", user_token).then(data => data.data).then(data => {
             if (data.status === "success") {
                 store.setUser(data.data);
             }

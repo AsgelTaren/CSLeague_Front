@@ -1,9 +1,9 @@
 import React from 'react';
 import './Choices.css';
-import * as Assets from '../../../assets';
 import * as Components from '../..';
+import { getImageURL } from '../../../utils/getImageURL';
 
-const Choices = ({ choice: { name, background }, onClick = () => { } }) => {
+const Choices = ({ choice: { name, image }, onClick = () => { } }) => {
     return (
         <div className='choice-container'>
 
@@ -15,7 +15,7 @@ const Choices = ({ choice: { name, background }, onClick = () => { } }) => {
                     <Components.ClassicButton text='Parier' />
                 </div>
                 <div className="choice-background">
-                    <img src={background} alt="choice-background" />
+                    <img src={getImageURL(image)} alt="choice-background" />
                 </div>
             </div>
 
