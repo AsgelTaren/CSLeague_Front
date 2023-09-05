@@ -4,6 +4,11 @@ import * as Components from '../../components';
 import * as Assets from '../../assets';
 import { getBet, getUserBet } from "../../core";
 import Cookies from "universal-cookie";
+// MUI Grid Layout Imports
+import { styled } from '@mui/system';
+import Box from '@mui/system/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 import './BetPage.css';
 
@@ -21,11 +26,19 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     let choices = choices_names.map((value, index) => ({ name: value, background: Assets.choices_backgrounds_map[choices_backgrounds[index]] }))
     return (
         <div className="choices-container">
-            {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
+            <Box sx={{ flexGrow: 2 }}>
+                <Grid container spacing={5} columns={{ xs: 2, sm: 3, md: 4, lg: 4, xl: 6 }}>
+                    {choices.map((choice, index) => (
+                        <Grid item xs={2} sm={1} md={1} lg={1} className="bet-grid__single-bet" >
+                            <Components.Choices choice={choice} key={index} onClick={() => {
                 bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, choice.name).then(data => {
                     navigate(0)
                 })
-            }} />)}
+            }} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
         </div>)
 }
 
@@ -168,12 +181,6 @@ const BetPage = () => {
             <GainPotentiel bet_type={bet.bet_type} gains={bet.gains} />
 
             <ManageDate bet={bet} userBet={userBet} cookies={cookies} navigate={navigate} />
-        </div>
-
-        {/* <Components.Number /> */}
-
-        <div className="bet-page__order-container">
-            {/*orderList.map((item) => <Components.Order text={item} />) */}
         </div>
 
     </div>)

@@ -136,24 +136,14 @@
 .campaign-page-bets {
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
-    gap: 2rem;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    flex-direction: column;
+    padding: 8rem 16rem;
 }
 
-.campaign-page-bets-row {
+.bet-grid__single-bet {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 2rem;
-}
 
-.campaign-page-grid {
-    display: flex;
-
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 
@@ -170,13 +160,9 @@
 
 
 
-
-
-@media screen and (max-width:1150px) {
-
-    .campaign-page-bets-row,
+@media screen and (max-width:1440px) {
     .campaign-page-bets {
-        gap: 1rem;
+        padding: 8rem;
     }
 }
 
@@ -209,6 +195,10 @@
     .a-vos-marques {
         font-size: 1.6rem;
         margin-top: 6rem;
+    }
+
+    .campaign-page-bets {
+        padding: 4rem;
     }
 }
 

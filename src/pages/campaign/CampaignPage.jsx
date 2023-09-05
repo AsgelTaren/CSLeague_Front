@@ -3,8 +3,21 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { getCampaign } from '../../core';
 import * as Components from '../../components';
 import * as Assets from '../../assets';
+// MUI Grid Layout Imports
+import { styled } from '@mui/system';
+import Box from '@mui/system/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 import './CampaignPage.css';
+
+// const Item = styled(Paper)(({ theme }) => ({
+//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//     //...theme.typography.body2,
+//     padding: theme.spacing(1),
+//     textAlign: 'center',
+//     //color: theme.palette.text.secondary,
+// }));
 
 const CampaignPage = () => {
     const [campaign, setCampaign] = useState();
@@ -22,28 +35,6 @@ const CampaignPage = () => {
         })
 
     }, [searchParams])
-
-
-    var cardsPerRow = 4;
-    // En fonction de la largeur de l'écran on définit le nombre de BetCard maximal affichés par ligne.
-    if (window.screen.width > 1024) {
-        cardsPerRow = 4;
-    } else if (window.screen.width > 768) {
-        cardsPerRow = 3;
-    } else if (window.screen.width > 425) {
-        cardsPerRow = 2;
-    } else {
-        cardsPerRow = 1;
-    }
-
-    const betRow = [];
-    for (let i = 0; i < bets.length; i += cardsPerRow) {
-        betRow.push(bets.slice(i, i + cardsPerRow));
-    };
-
-
-    console.log(window.screen.width);
-
 
 
     if (!campaign) {
@@ -99,13 +90,15 @@ const CampaignPage = () => {
         </div>
 
         <div className="campaign-page-bets">
-            {betRow.map((row, rowIndex) => (
-                <div key={rowIndex} style={{ display: 'flex' }} className="campaign-page-bets-row">
-                    {row.map((bet, index) => (
-                        <Components.BetCard bet={bet} key={index} />
+            <Box sx={{ flexGrow: 2 }}>
+                <Grid container spacing={5} columns={{ xs: 2, sm: 4, md: 6, lg: 8 }}>
+                    {bets.map((bet, index) => (
+                        <Grid item xs={2} className="bet-grid__single-bet" >
+                            <Components.BetCard bet={bet} key={index} />
+                        </Grid>
                     ))}
-                </div>
-            ))}
+                </Grid>
+            </Box>
         </div>
 
     </div>)

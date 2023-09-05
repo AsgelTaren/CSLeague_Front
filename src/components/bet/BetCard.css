@@ -149,6 +149,21 @@
     font-size: 0.8rem;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width:1150px) {
     .bet-card {
         width: 14rem;
@@ -246,20 +261,14 @@
     }
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:375px) {
     .bet-card {
         width: 14rem;
     }
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:320px) {
     .bet-card {
         width: 12rem;
-    }
-}
-
-@media screen and (max-width:425px) {
-    .bet-card {
-        width: 16rem;
     }
 }
