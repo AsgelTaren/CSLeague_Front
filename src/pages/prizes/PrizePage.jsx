@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { getCampaign } from '../../core';
+import { getUniqueCampaign } from '../../core';
 import * as Components from '../../components';
-import * as Assets from '../../assets';
-import { campaigns_prizes_map } from '../../assets';
 
 import './PrizePage.css';
+import { getImageURL } from "../../utils/getImageURL";
 
 const PrizePage = () => {
 
@@ -17,46 +16,29 @@ const PrizePage = () => {
 
     useEffect(() => {
         if (!searchParams.get("id")) return;
-        getCampaign(searchParams.get("id")).then(campaign => {
+        getUniqueCampaign(searchParams.get("id")).then(campaign => {
             setCampaign(campaign);
-            campaign.getBets().then(bets => setBets(bets))
+            console.log(campaign)
         })
 
     }, [searchParams])
-
-    // console.log(campaign);
 
     if (!campaign) {
         return (<div><p>Cette campagne n'existe pas</p></div>)
     }
 
-    if(!campaign.prize_name){
+    if (!campaign.prizes) {
         return (<div><p>Cette campagne n'a pas de prix!</p></div>)
     }
 
-    // A partir de la bdd, on construit le tableau contenant pour chaque prize son nom et son image
-    // console.log(campaign.prize_name, campaign.prize_icon)
-    const prizes_names = campaign.prize_name.split(",");
-    const prizes_images = campaign.prize_icon.split(",");
-
-    let prize_data = [];
-    for (let i = 0; i < prizes_images.length; i++) {
-        let emptyList = [];
-        let toConcatenate = emptyList.concat(prizes_names[i], campaigns_prizes_map[prizes_images[i]]);
-        prize_data.push(toConcatenate);
-    }
-
-    // console.log(prize_data);
-
     const campaignIndex = campaign.id;
-
 
     return (
         <div className='betpage-container'>
             <div className='betpage-bouton-retour' onClick={() => { navigate('/') }}><Components.BoutonRetour /></div>
             <div className='betpage-header'>Profitez du WEI pour tenter de gagner des lots d’enfer !</div>
             <div className='betpage-partners'>
-                <div className='partner-left'>
+                {/* <div className='partner-left'>
                     <div className="partner-left__csleague-logo">
                         <Components.Logo size='100%' />
                     </div>
@@ -66,16 +48,24 @@ const PrizePage = () => {
                 <div className='partner-right'>
                     <p>{campaign.partner_name}</p>
                     <img src={campaign.partner_icon} alt="partner-icon" />
+                </div> */}
+
+                {campaign.partners.map((partner, index) => <React.Fragment><div className='partner-right'>
+                    <img src={getImageURL(partner.icon)} alt={partner.icon} />
+                    <p>{partner.name}</p>
                 </div>
+                    {index != campaign.partners.length - 1 ? <div className='partner-cross'><Components.CrossIcon size='100%' /></div> : null}
+                </React.Fragment>
+                )}
             </div>
             <div className='betpage-prizes'>
                 <div className='prizes-title'>A gagner :</div>
 
                 <div className="prizes-container">
-                    {prize_data.map((prize, _) => (
-                        <div className="prize">
-                            <img src={prize[1]} alt="prize-image" />
-                            <p className="prize-name">{prize[0]}</p>
+                    {campaign.prizes.map((prize, index) => (
+                        <div className="prize" key={index}>
+                            <img src={getImageURL(prize.image)} alt="prize-image" />
+                            <p className="prize-name">{prize.name}</p>
                         </div>
                     ))}
                 </div>

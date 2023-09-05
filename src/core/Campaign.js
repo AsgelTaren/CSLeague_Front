@@ -4,59 +4,36 @@ import { betFromJSON } from './Bet';
 
 class Campaign {
 
-    constructor(id, name, image, icon, desc, partner_name, partner_icon, prize_name, prize_icon) {
+    constructor(id, name, image, icon, description) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.icon = icon;
-        this.desc = desc;
-        this.partner_name = partner_name;
-        this.partner_icon = partner_icon;
-        this.prize_name = prize_name;
-        this.prize_icon = prize_icon;
+        this.description = description;
     }
-
-    async getBets() {
-        return axios.get(process.env.REACT_APP_ENDPOINT + "/api/services/bets/getOfCampaign?id=" + this.id)
-            .then(data => data.data)
-            .then(data => {
-                if (data.status === "success") {
-                    return data.data.map(betJSON => betFromJSON(betJSON))
-                }
-            })
-    }
-
 }
 
-const campaignFromJSON = (data) => {
-    return new Campaign(
-        data.id, 
-        data.name, 
-        campaigns_images_map[data.image], 
-        campaigns_icons_map[data.icon], 
-        data.desc, data.partner_name, 
-        campaigns_partner_icon_map[data.partner_icon], 
-        data.prize_name, 
-        data.prize_icon
-    )
+const campaignOfJSON = (data) => {
+    return new Campaign(data.id, data.name, data.image, data.icon, data.description)
 }
 
-const getCampaign = async (id) => {
-    return axios.get(process.env.REACT_APP_ENDPOINT + "/api/services/campaigns/getOne?id=" + id)
-        .then(data => data.data)
-        .then(data => {
-            if (data.status === "success") {
-                return campaignFromJSON(data.data)
-            }
-        })
-}
 
 const getAllCampaigns = async () => {
-    return axios.get(process.env.REACT_APP_ENDPOINT + "/api/services/campaigns/getAll").then(data => data.data).then(data => {
+    return axios.get(process.env.REACT_APP_ENDPOINT + "/campaigns/all").then(data => data.data).then(data => {
         if (data.status === "success") {
-            return data.data.map(campaignJSON => campaignFromJSON(campaignJSON))
+            return data.data.map(item => campaignOfJSON(item))
         }
     })
 }
 
-export { Campaign, getCampaign, getAllCampaigns }
+const getUniqueCampaign = async (id) => {
+    return axios.get(process.env.REACT_APP_ENDPOINT + `/campaigns/unique?campaign=${id}`).then(data => data.data).then(data => {
+        console.log(data)
+        if (data.status === "success") {
+            return data.data;
+        }
+        return undefined;
+    })
+}
+
+export { Campaign, getAllCampaigns,getUniqueCampaign }

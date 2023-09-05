@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { getCampaign } from '../../core';
+import {} from '../../core';
 import * as Components from '../../components';
-import * as Assets from '../../assets';
 
 import './CampaignPage.css';
 
@@ -16,10 +15,10 @@ const CampaignPage = () => {
 
     useEffect(() => {
         if (!searchParams.get("id")) return;
-        getCampaign(searchParams.get("id")).then(campaign => {
-            setCampaign(campaign);
-            campaign.getBets().then(bets => setBets(bets))
-        })
+        // getCampaign(searchParams.get("id")).then(campaign => {
+        //     setCampaign(campaign);
+        //     campaign.getBets().then(bets => setBets(bets))
+        // })
 
     }, [searchParams])
 
@@ -54,7 +53,7 @@ const CampaignPage = () => {
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");
 
-    let prize_data = prizes_names.map((value, index) => ({ name: value, background: Assets.campaigns_prizes_map[prizes_images[index]] }));
+    let prize_data = prizes_names.map((value, index) => ({ name: value, background: "test" }));
 
 
     return (<div className="campaign-page">

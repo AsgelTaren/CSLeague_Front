@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import { bet_types, bet_types_icons } from '../../assets';
 // import moment from "moment";
 import { Bet } from '../../core';
 
@@ -21,8 +20,8 @@ const BetCard = ({ bet }) => {
             <p className="bet-card-date">Au {moment(bet.date_end).format("DD/MM/YYYY - hh:mm")}</p>
             <p className="bet-card-date">{bet.gains + " points"}</p>
             <div className="bet-card-type">
-                <img src={bet_types_icons[bet.bet_type]} alt="bet-type" />
-                <p>{bet_types[bet.bet_type]}</p>
+                <img src={"test"} alt="bet-type" />
+                <p>{"test"}</p>
             </div>
 
         </div>

@@ -1,6 +1,5 @@
 import moment from "moment";
-import { getCampaign as generalGetCampaign } from "./Campaign";
-import { campaigns_icons_map, campaigns_images_map } from "../assets";
+import {  } from "./Campaign";
 import axios from "axios";
 
 class Bet {
@@ -20,10 +19,6 @@ class Bet {
         this.orders = orders
     }
 
-    async getCampaign() {
-        return generalGetCampaign(this.campaign)
-    }
-
     async placeBetForUser(access_token,provider, bet_choice) {
         return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/placeBet", {access_token, bet_choice, bet_id: this.id,provider })
     }
@@ -36,8 +31,8 @@ const betFromJSON = (data) => {
         data.bet_type,
         moment(data.date_begin, 'YYYY-MM-DD HH:mm').toDate(),
         moment(data.date_end, 'YYYY-MM-DD HH:mm').toDate(),
-        campaigns_images_map[data.image],
-        campaigns_icons_map[data.icon],
+       undefined,
+        undefined,
         data.campaign,
         data.choice_name,
         data.choice_background,

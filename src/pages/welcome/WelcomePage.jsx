@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Logo } from '../../components';
-import axios from 'axios';
 
 import './WelcomePage.css';
 import * as Components from '../../components';

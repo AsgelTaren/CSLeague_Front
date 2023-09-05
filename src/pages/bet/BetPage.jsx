@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import * as Components from '../../components';
-import * as Assets from '../../assets';
 import { getBet, getUserBet } from "../../core";
 import Cookies from "universal-cookie";
 
@@ -18,7 +17,7 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     const choices_names = bet.choice_name.split(",");
     const choices_backgrounds = bet.choice_background.split(",");
 
-    let choices = choices_names.map((value, index) => ({ name: value, background: Assets.choices_backgrounds_map[choices_backgrounds[index]] }))
+    let choices = choices_names.map((value, index) => ({ name: value, background: "test" }))
     return (
         <div className="choices-container">
             {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
@@ -112,7 +111,7 @@ const BetPage = () => {
     const prizes_names = campaign.prize_name.split(",");
     const prizes_images = campaign.prize_icon.split(",");
 
-    let prize_data = prizes_names.map((value, index) => ({ name: value, background: Assets.campaigns_prizes_map[prizes_images[index]] }));
+    let prize_data = prizes_names.map((value, index) => ({ name: value, background: "test" }));
 
     return (<div className="bet-page">
 

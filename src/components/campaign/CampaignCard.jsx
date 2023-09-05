@@ -2,13 +2,12 @@ import React from 'react';
 import { Campaign } from '../../core';
 import { Logo } from '../../components';
 import { useNavigate } from 'react-router-dom';
+import {getImageURL} from '../../utils/getImageURL';
+import * as Assets from '../../assets';
 
 
 // Css import
 import './CampaignCard.css';
-
-// Import assets
-import * as Assets from '../../assets';
 
 const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => {
     let navigate = useNavigate();
@@ -23,25 +22,24 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
             setCurrent(index - 6, total);
         }
     };
-
     if (campaign)
         return (
             <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id} onClick={(myEvent) => { customClick(index, total, myEvent) }}>
                 <div className='campaign-card-background'>
-                    <img src={campaign.image} alt='background' />
+                    <img src={getImageURL(campaign.image)} alt='background' />
                 </div>
                 <div className='campaign-card-content'>
-                    <img className='campaign-card-logo' src={campaign.icon} alt="icon" />
+                    <img className='campaign-card-logo' src={getImageURL(campaign.icon)} alt="icon" />
                     <div className='campaign-card-infos'>
                         <div className='campaign-card-name'>
                             <p>{campaign.name}</p>
                         </div>
                         <p className="campaign-card-date">du 11 au 18 mai 2023</p>
                     </div>
-                    <div className='campaign-card-partners'>
+                    {/* <div className='campaign-card-partners'>
                         <div className='partner-logo'><Logo size="100%" /></div>
-                        <div className='partner-logo'><img src={Assets.campaigns_partners_map.csfinance} alt="partner-logo" /></div>
-                    </div>
+                        <div className='partner-logo'><img src={"test"} alt="partner-logo" /></div>
+                    </div> */}
                 </div>
             </div>
         )
@@ -82,12 +80,6 @@ class CampaignCardList extends React.Component {
 }
 CampaignCardList.defaultProps = {
     campaigns: [
-        new Campaign('TOSS', Assets.toss_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
-        new Campaign('WEI', Assets.wei_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
-        new Campaign('WEI', Assets.wei_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
-        new Campaign('WEI', Assets.wei_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
-        new Campaign('WEI', Assets.wei_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
-        new Campaign('WEI', Assets.wei_img, 'rgb(255,0,0)', Assets.toss_logo, Assets.csfinance_logo),
     ]
 }
 
