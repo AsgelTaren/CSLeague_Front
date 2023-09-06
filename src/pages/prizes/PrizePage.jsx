@@ -17,7 +17,6 @@ const PrizePage = () => {
         if (!searchParams.get("id")) return;
         getUniqueCampaign(searchParams.get("id")).then(campaign => {
             setCampaign(campaign);
-            console.log(campaign)
         })
 
     }, [searchParams])
@@ -37,7 +36,7 @@ const PrizePage = () => {
             <div className='betpage-bouton-retour' onClick={() => { navigate('/') }}><Components.BoutonRetour /></div>
             <div className='betpage-header'>Profitez du WEI pour tenter de gagner des lots d’enfer !</div>
             <div className='betpage-partners'>
-                {campaign.partners.map((partner, index) => <React.Fragment><div className='partner-right'>
+                {campaign.partners.map((partner, index) => <React.Fragment key={index}><div className='partner-right'>
                     <img src={getImageURL(partner.icon)} alt={partner.icon} />
                     <p>{partner.name}</p>
                 </div>

@@ -66,7 +66,7 @@ class CampaignCardList extends React.Component {
                 </div>
                 <div className='dots-container'>
                     {Array.from({ length: total }).map((_, index) => (
-                        <div className='dot-button' onClick={() => { setCurrent(index, total) }}></div>
+                        <div className='dot-button' onClick={() => { setCurrent(index, total) }} key={index}></div>
                         // <div className={currentItem === index ? 'dot-button active-dot' : 'dot-button'} onClick={() => { setCurrent(index, total) }}></div>
                     ))}
                 </div>

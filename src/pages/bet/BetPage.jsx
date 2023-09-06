@@ -5,6 +5,7 @@ import { getImageURL } from "../../utils/getImageURL";
 import { getUniqueBet, getUniqueCampaign, getUserBet } from "../../core";
 import Cookies from "universal-cookie";
 import moment from "moment";
+import { createUserDataStore } from "../../core";
 
 import './BetPage.css';
 
@@ -51,7 +52,7 @@ const NumberBet = (bet, userBet, cookies, navigate) => {
 
 const bet_type_constructors = { "multiple": MultipleChoiceBet, "number": NumberBet }
 
-const ManageDate = ({ bet, userBet, cookies, navigate }) => {
+const ManageDate = ({ bet,campaign, userBet, cookies, navigate }) => {
     const today = new Date(Date.now());
     const date_begin = moment(bet.date_begin, 'YYYY-MM-DD HH:mm:ss').toDate()
     const date_end = moment(bet.date_end, 'YYYY-MM-DD HH:mm:ss').toDate()
@@ -64,10 +65,18 @@ const ManageDate = ({ bet, userBet, cookies, navigate }) => {
             {bet.answer ? <p className="pari-pris">La bonne réponse était {bet.answer}.</p> : <p className="pari-pris">Les résultats ne sont pas encore disponibles !</p>}
         </div>)
     }
-    if (!cookies.get("user_token")) {
+    const store = createUserDataStore()
+    if (!cookies.get("user_token") || !store.user) {
         return (<div className="bet-connect">
             <p>Vous devez vous connecter pour pouvoir parier !</p>
             <Components.ClassicButton text="Se connecter" onClick={() => navigate("/oauth")} />
+        </div>)
+    }
+    
+    if(campaign.allowedPromo && campaign.allowedPromo !== "ALL" && campaign.allowedPromo.split(',').map(item => Number(item).valueOf()).indexOf(store.user.promo) == -1){
+        return(<div className="bet-connect">
+            <p>Vous devez être dans une des promotions suivantes pour pouvoir parier</p>
+            <p>{campaign.allowedPromo}</p>
         </div>)
     }
     return (<div className="manage-date-container">
@@ -97,11 +106,13 @@ const BetPage = () => {
         if (!searchParams.get("id")) return;
         getUniqueBet(searchParams.get("id")).then(bet => {
             setBet(bet);
-            getUniqueCampaign(bet.id).then(campaign => setCampaign(campaign))
+            getUniqueCampaign(bet.campaign).then(campaign => setCampaign(campaign))
         })
         if (!cookies.get("user_token")) return;
-        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => {setUserBet(data);
-        console.log(data)})
+        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => {
+            setUserBet(data);
+            console.log(data)
+        })
     }, [searchParams])
 
     if (!bet || !campaign) {
@@ -147,7 +158,7 @@ const BetPage = () => {
                     ))}
                 </div>
             </div>
-            <ManageDate bet={bet} userBet={userBet} cookies={cookies} navigate={navigate} />
+            <ManageDate bet={bet}  campaign={campaign} userBet={userBet} cookies={cookies} navigate={navigate} />
         </div>
 
         {/* <Components.Number /> */}

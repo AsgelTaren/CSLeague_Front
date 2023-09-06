@@ -17,8 +17,8 @@ const SendIcon = () => {
 
 const CrossIcon = ({ size }) => {
     return (<svg width={size} height={size} viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.54504 6.54498L42.0575 42.455" stroke="#802626" stroke-width="3" />
-        <path d="M42.455 6.54498L6.9425 42.455" stroke="#802626" stroke-width="3" />
+        <path d="M6.54504 6.54498L42.0575 42.455" stroke="#802626" strokeWidth="3" />
+        <path d="M42.455 6.54498L6.9425 42.455" stroke="#802626" strokeWidth="3" />
     </svg>)
 }
 

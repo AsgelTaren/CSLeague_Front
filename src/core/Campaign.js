@@ -10,12 +10,12 @@ class Campaign {
         this.description = description;
         this.date_begin = date_begin;
         this.date_end = date_end;
-        this.allowPromo = allowedPromo;
+        this.allowedPromo = allowedPromo;
     }
 }
 
 const campaignOfJSON = (data) => {
-    return new Campaign(data.id, data.name, data.image, data.icon, data.description, data.date_begin, data.date_end, data.allowPromo)
+    return new Campaign(data.id, data.name, data.image, data.icon, data.description, data.date_begin, data.date_end, data.allowedPromo)
 }
 
 
@@ -30,6 +30,7 @@ const getAllCampaigns = async () => {
 const getUniqueCampaign = async (id) => {
     return axios.get(process.env.REACT_APP_ENDPOINT + `/campaigns/unique?campaign=${id}`).then(data => data.data).then(data => {
         if (data.status === "success") {
+            console.log(data.data)
             return data.data;
         }
         return undefined;
