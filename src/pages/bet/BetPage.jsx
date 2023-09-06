@@ -16,7 +16,6 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     if (userBet) {
         return (<p className="pari-pris">{userBet.choice}</p>)
     }
-    console.log(bet)
     const choices_names = bet.choice_names.split(",");
     const choices_images = bet.choice_images.split(",");
 
@@ -24,7 +23,7 @@ const MultipleChoiceBet = (bet, userBet, cookies, navigate) => {
     return (
         <div className="choices-container">
             {choices.map((choice, index) => <Components.Choices choice={choice} key={index} onClick={() => {
-                bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, choice.name).then(data => {
+                bet.placeBetForUser(cookies.get("user_token").access_token, choice.name).then(data => {
                     navigate(0)
                 })
             }} />)}
@@ -40,7 +39,7 @@ const NumberBet = (bet, userBet, cookies, navigate) => {
         <input type="number" id="choice-number" />
         <Components.ClassicButton text="Parier" icon={<Components.BetIcon />} onClick={(event) => {
             if (!!document.getElementById("choice-number").value && isNumeric(document.getElementById("choice-number").value)) {
-                bet.placeBetForUser(cookies.get("user_token").access_token, cookies.get("user_token").provider, document.getElementById("choice-number").value).then(data => {
+                bet.placeBetForUser(cookies.get("user_token").access_token, document.getElementById("choice-number").value).then(data => {
                     navigate(0)
                 })
             }
@@ -101,7 +100,8 @@ const BetPage = () => {
             getUniqueCampaign(bet.id).then(campaign => setCampaign(campaign))
         })
         if (!cookies.get("user_token")) return;
-        // getUserBet(cookies.get("user_token").access_token, cookies.get("user_token").provider, searchParams.get("id")).then(data => setUserBet(data))
+        getUserBet(cookies.get("user_token").access_token, searchParams.get("id")).then(data => {setUserBet(data);
+        console.log(data)})
     }, [searchParams])
 
     if (!bet || !campaign) {

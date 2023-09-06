@@ -15,6 +15,7 @@ const BetCard = ({ bet, campaign_icon }) => {
         <div className="bet-card-content">
             <img src={campaign_icon} alt="campaign_icon" />
             <p className="bet-card-title">{bet.name}</p>
+            <p className="bet-card-status">{bet.answer ? "Terminé" : null}</p>
             <div className="bet-card-separator"></div>
             <p className="bet-card-date">Du {moment(bet.date_begin).format("DD/MM/YYYY - hh:mm")}</p>
             <p className="bet-card-date">Au {moment(bet.date_end).format("DD/MM/YYYY - hh:mm")}</p>

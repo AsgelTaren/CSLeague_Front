@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Campaign {
 
-    constructor(id, name, image, icon, description, date_begin, date_end) {
+    constructor(id, name, image, icon, description, date_begin, date_end, allowedPromo) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -10,11 +10,12 @@ class Campaign {
         this.description = description;
         this.date_begin = date_begin;
         this.date_end = date_end;
+        this.allowPromo = allowedPromo;
     }
 }
 
 const campaignOfJSON = (data) => {
-    return new Campaign(data.id, data.name, data.image, data.icon, data.description, data.date_begin, data.date_end)
+    return new Campaign(data.id, data.name, data.image, data.icon, data.description, data.date_begin, data.date_end, data.allowPromo)
 }
 
 

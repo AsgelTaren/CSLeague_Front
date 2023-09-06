@@ -80,7 +80,7 @@ const CampaignPage = () => {
                 </div>
             </div>
 
-            <h1 className="a-vos-marques">A vos marques, prêts, pariez !</h1>
+            <h1 className="a-vos-marques">{bets.length > 0 ? "A vos marques, prêts, pariez !" : "Aucun paris n'est disponible pour l'instant"}</h1>
         </div>
 
         <div className="campaign-page-bets">

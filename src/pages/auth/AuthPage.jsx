@@ -1,7 +1,6 @@
 import React from "react";
 
 import * as Assets from '../../assets';
-import getGoogleURL from '../../utils/getGoogleURL';
 import getViaRezoURL from '../../utils/getViaRezoURL';
 import './AuthPage.css'
 import * as Components from '../../components';

@@ -15,9 +15,13 @@ class Bet {
         this.answer = answer;
     }
 
-    async placeBetForUser(access_token, provider, bet_choice) {
-        return axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/placeBet", { access_token, bet_choice, bet_id: this.id, provider })
+    async placeBetForUser(access_token, bet_choice) {
+        return axios.post(process.env.REACT_APP_ENDPOINT + "/bets/place", { access_token, bet_choice, bet: this.id })
     }
+}
+
+export const placeBetForUserByID = (bet_id, access_token, bet_choice) => {
+    return axios.post(process.env.REACT_APP_ENDPOINT + "/bets/place", { access_token, bet_choice, bet: bet_id })
 }
 
 const betFromJSON = (data) => {

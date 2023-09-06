@@ -1,7 +1,5 @@
 import React from 'react';
 import './Buttons.css';
-import * as Assets from '../../assets';
-import getGoogleURL from '../../utils/getGoogleURL';
 
 const BoutonRetour = () => {
     return (
@@ -28,7 +26,7 @@ const BoutonRetour = () => {
     )
 }
 
-const ClassicButton = ({ text, icon, onClick = () => { },style }) => {
+const ClassicButton = ({ text, icon, onClick = () => { }, style }) => {
     return (
         <button className='button-classic' onClick={onClick} style={style}>
             {text}

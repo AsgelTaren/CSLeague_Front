@@ -19,7 +19,6 @@ const CampaignCard = ({ campaign, selected = false, id = -1, index, total }) => 
             setCurrent(index - 6, total);
         }
     };
-    console.log(campaign)
     if (campaign) {
         return (
             <div className={"campaign-card " + (selected ? "selectedCard" : "")} id={id} onClick={(myEvent) => { customClick(index, total, myEvent) }}>
@@ -106,7 +105,6 @@ const carouselMove = (dir, total) => {
     })
 
     for (var i = 0; i < total; i++) {
-        console.log(cards[i + 6])
         cards[i + 6].classList.remove("selectedCard")
     }
     cards[6 + currentItem].classList.add("selectedCard")

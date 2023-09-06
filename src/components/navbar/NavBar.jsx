@@ -3,7 +3,6 @@ import { createUserDataStore } from '../../core/';
 import Cookies from "universal-cookie";
 import axios from "axios";
 import * as Components from '../../components';
-import getGoogleURL from '../../utils/getGoogleURL';
 import { Logo, Logo_Instagram, NavigationButton } from '..';
 import { useNavigate } from 'react-router-dom';
 

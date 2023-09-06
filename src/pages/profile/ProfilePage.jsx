@@ -13,13 +13,16 @@ const ProfilePage = () => {
     const [bets, setBets] = useState([])
     useEffect(() => {
         if (!cookies.get("user_token")) return;
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/getPoints", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider }).then(data => data.data).then(data => {
-            setPoints({ points: data.data.points_won ?? 0, rank: data.data.rank })
+        axios.post(process.env.REACT_APP_ENDPOINT + "/oauth/userRank", { access_token: cookies.get("user_token").access_token, provider: cookies.get("user_token").provider }).then(data => data.data).then(data => {
+            if (data.data) {
+                setPoints({ points: data.data.points_won ?? 0, rank: data.data.rank })
+            } else {
+                setPoints({ points: 0, rank: "Non calculable" })
+            }
         })
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/user/ofToken", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider }).then(data => console.log(data.data))
-        axios.post(process.env.REACT_APP_ENDPOINT + "/api/services/bets/ofUser", { access_token: cookies.get("user_token").access_token,provider: cookies.get("user_token").provider })
+        axios.post(process.env.REACT_APP_ENDPOINT + "/oauth/userBets", { access_token: cookies.get("user_token").access_token })
 
-            .then(data => { console.log(data); return data.data.data.map(bet => userBetFromJSON(bet)) }).then(data => setBets(data))
+            .then(data => data.data.data).then(data => setBets(data))
     }, [])
     return (
         <div className='page-mes-paris'>
@@ -27,7 +30,7 @@ const ProfilePage = () => {
             <div className='header-page-mes-paris'>
                 <div className='header-component'>
                     <p>Votre fortune s'élève à :</p>
-                    <h1 className='header-info'>{points ? Math.round(points.points*100)/100 : "Non acquis"} BuCS</h1>
+                    <h1 className='header-info'>{points ? Math.round(points.points * 100) / 100 : "Non acquis"} BuCS</h1>
                     <div></div>
                 </div>
                 <div className='header-component'>
