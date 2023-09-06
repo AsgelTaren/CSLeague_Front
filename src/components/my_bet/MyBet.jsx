@@ -28,7 +28,7 @@ const MyBet = ({ userBet, cookies, navigate }) => {
                         console.log(userBet.bet_id)
                         placeBetForUserByID(userBet.bet_id, cookies.get("user_token").access_token, undefined).then(data => console.log(data))
                         navigate(0)
-                    }} /> : (userBet.bet_answer ? <p>Résultat: {Math.round(userBet.points_won * 100) / 100} points</p> : <p>Résultats bientôt disponibles</p>)}
+                    }} /> : (userBet.answer ? <p>Résultat: {Math.round(userBet.points_won * 100) / 100} points</p> : <p>Résultats bientôt disponibles</p>)}
 
             </div>
 
