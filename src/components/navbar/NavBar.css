@@ -8,6 +8,13 @@
     width: 100%;
 }
 
+.navbar-left__navigation-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:2rem;
+}
+
 .navbar-left {
     display: flex;
     align-items: center;
@@ -134,12 +141,15 @@
     .navbar {
         padding: 1.5rem 0.5rem;
     }
+
     .navbar-left__logo-csleague {
         width: 2rem;
     }
+
     .navbar-right__logo-instagram {
         width: 1.5rem;
     }
+
     .userpin {
         gap: 0.5rem;
         padding: 0.25rem 0.25rem 0.25rem 0.5rem;

@@ -6,3 +6,4 @@ export * from './contact/ContactPage';
 export * from './prizes/PrizePage';
 export * from './profile/ProfilePage';
 export * from './logout/Logout';
+export * from './wei_bus/WeiBusPage';

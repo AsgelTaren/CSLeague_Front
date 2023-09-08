@@ -1,0 +1,54 @@
+.wei-bus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.wei-bus tr{
+    color: var(--color-secondary);
+    text-align: left;
+    font-family: var(--font-family);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.wei-bus-title{
+    margin:4rem;
+}
+
+.wei-bus-ranking{
+    border-collapse:collapse;
+    background-color: var(--black-10);
+    border-radius:1rem;
+    box-shadow:0 0 10px rgb(99, 99, 99);
+}
+
+.wei-bus-ranking td {
+    padding:0 4rem 0 4rem;
+}
+
+.wei-bus-ranking th{
+    padding:1rem;
+    margin:0;
+    text-align: center;
+    color:black;
+    font-size:1.4rem;
+}
+
+@media screen and (max-width:1150px){
+    .wei-bus-ranking td{
+        padding:0 0.3rem 0 0.3rem;
+        font-size:0.7rem;
+    }
+}
+
+.wei-bus-ranking td{
+    text-align: center;
+}
+
+.wei-bus-ranking tr:not(:last-child){
+    border-bottom: 1px solid rgb(148, 148, 148);
+}

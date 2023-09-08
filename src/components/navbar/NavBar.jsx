@@ -35,6 +35,9 @@ const NavBar = () => {
                 <div className='bouton-mes-paris-container' onClick={() => { navigate('/profile') }}>
                     <NavigationButton text="Mon Profil" />
                 </div>
+                <div className='bouton-mes-paris-container' onClick={() => { navigate('/bus') }}>
+                    <NavigationButton text="Bus WEI" />
+                </div>
             </div>
         </div>
 
