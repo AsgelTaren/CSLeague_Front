@@ -10,8 +10,8 @@
 
 .campaign-image>img {
     object-fit: cover;
-    margin-top: -40%;
     filter: blur(4px);
+    width:100%;
 }
 
 .bet-page-bouton-retour {
@@ -30,7 +30,7 @@
 
 .bet-infos {
     display: flex;
-    margin-top: -3.5rem;
+    margin-top: -6rem;
 
     /* border: 1px solid black; */
 }
@@ -145,6 +145,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width:80%;
+    flex-wrap:wrap;
 
     /* margin-top: 8rem;
     margin-bottom: 8rem; */
@@ -155,6 +157,10 @@
     gap: 1rem;
 
     padding: 8rem 0rem;
+}
+
+.choice-container{
+    flex:1;
 }
 
 .bet-page__order-container {
@@ -205,6 +211,9 @@
 
 .user-choice {
     margin-top: -6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-choice>p {

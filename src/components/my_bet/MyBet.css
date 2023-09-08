@@ -131,6 +131,7 @@
     margin-right: 2rem;
     border-radius: 100px;
     transition: all 0.1s ease-in-out;
+    text-align: center;
 }
 
 .bouton-annuler:hover {
@@ -181,6 +182,7 @@
     .bet-image {
         display: none;
     }
+
     .mon-pari {
         flex-direction: column;
         /* justify-content: center; */
@@ -188,6 +190,7 @@
         height: auto;
         padding: 1rem;
     }
+
     .bouton-annuler,
     .bet-title {
         margin: auto;

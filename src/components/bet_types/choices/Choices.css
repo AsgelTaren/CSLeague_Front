@@ -64,7 +64,7 @@
     text-align: center;
 
     font-family: var(--font-family);
-    font-size: 2.9rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -123,7 +123,7 @@
     }
 
     .choice-title {
-        font-size: 2.4rem;
+        font-size: 1.9rem;
     }
 }
 
@@ -138,6 +138,6 @@
         height: 8rem;
     }
     .choice-title {
-        font-size: 2.9rem;
+        font-size: 1.8rem;
     }
 }

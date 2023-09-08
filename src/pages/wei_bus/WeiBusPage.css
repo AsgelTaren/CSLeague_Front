@@ -40,8 +40,13 @@
 
 @media screen and (max-width:1150px){
     .wei-bus-ranking td{
-        padding:0 0.3rem 0 0.3rem;
+        padding:0 0.15rem 0 0.15rem;
         font-size:0.7rem;
+        max-width:60%;
+    }
+
+    .wei-bus-ranking th{
+        font-size:1rem;
     }
 }
 

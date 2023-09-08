@@ -118,6 +118,7 @@
 }
 
 .campaign-card-name {
+    text-align: end;
     transform: skew(14deg, 0);
     font-family: var(--font-family);
     padding: 0.2rem;

@@ -23,7 +23,6 @@
 
 .campaign-image>img {
     object-fit: cover;
-    margin-top: -40%;
     filter: blur(4px);
 }
 
