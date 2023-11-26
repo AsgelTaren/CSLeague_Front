@@ -22,11 +22,11 @@ const App = () => {
                 <Route path="/oauth" element={<Pages.AuthPage />} />
                 <Route path="/oauth/error" element={<p>Une erreur est survenue!</p>} />
                 <Route path="/oauth/logout" element={<Pages.Logout />} />
-                <Route path="*" element={<p>Cette page n'existe pas!</p>} />
                 <Route path="/contact" element={<Pages.ContactPage />} />
                 <Route path="/prizes" element={<Pages.PrizePage />} />
                 <Route path='/profile' element={<Pages.ProfilePage />} />
                 <Route path="/bus" element={<Pages.WeiBusPage />} />
+                <Route path="*" element={<p>Cette page n'existe pas!</p>} />
             </Routes>
             <div className='footer-container'><Components.Footer /></div>
         </BrowserRouter>
