@@ -8,14 +8,14 @@ const Choices = ({ choice: { name, image }, onClick = () => { } }) => {
         <div className='choice-container'>
 
             <div className="choice">
-                <div className='choice-title'>
-                    {name}
-                </div>
                 <div className='container-bouton-parier' onClick={onClick}>
                     <Components.ClassicButton text='Parier' />
                 </div>
                 <div className="choice-background">
                     <img src={getImageURL(image)} alt="choice-background" />
+                </div>
+                <div className='choice-title'>
+                    {name}
                 </div>
             </div>
 
